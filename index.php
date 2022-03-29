@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+<?php 
+    header('Location: pages/book.php');  
+?>
 </body>
 </html>
