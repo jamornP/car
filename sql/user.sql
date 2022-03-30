@@ -1,3 +1,5 @@
-CREATE USER 'usersci'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'sciencepwd';
+--กำหนดสิทธิ์ db
+GRANT All PRIVILEGES ON db_car.* TO 'usersci'@'localhost' identified BY 'sciencepwd';
 
-GRANT ALL PRIVILEGES ON db_car.* TO 'usersci'@'localhost';
+--up คำสั้ง
+FLUSH PRIVILEGES;
