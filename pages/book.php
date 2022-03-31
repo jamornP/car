@@ -1,3 +1,12 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
+<?php
+use App\Model\Position;
+use App\Model\Department;
+use App\Model\Choose;
+use App\Model\Car;
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +43,17 @@
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
                                             <label for="">ตำแหน่ง</label>
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>เลือก</option>
-                                                <option value="1">ผู้บริหาร</option>
-                                                <option value="2">อาจารย์</option>
-                                                <option value="3">เจ้าหน้าที่</option>
-                                                <option value="4">นักศึกษา</option>
+                                            <select class="form-select" aria-label="Default select example" name="position">
+                                                <option  value="">เลือก</option>
+                                                <?php
+                                                    $positionObj = new Position;
+                                                    $positions = $positionObj->getAllPosition(); 
+                                                    foreach($positions as $position) {
+                                                        echo "
+                                                        <option value='{$position['id']}'>{$position['name']}</option>
+                                                        ";
+                                                    }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
