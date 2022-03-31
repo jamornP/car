@@ -108,7 +108,7 @@ use App\Model\Car;
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="">ต้อนทาง</label>
+                                            <label for="">ต้นทาง</label>
                                             <input type="text" class="form-control">
                                         </div>
                                     </div>
@@ -140,9 +140,14 @@ use App\Model\Car;
                                             $chooses = $chooseObj->getAllchoose(); 
                                             $i=0;
                                             foreach($chooses as $choose) {
+                                                if($i == 0){
+                                                    $a="checked";
+                                                }else{
+                                                    $a="";
+                                                }
                                                 echo "
                                                     <div class='form-check'>
-                                                        <input class='form-check-input' type='radio' name='choose' id='flexRadioDefault{$choose['id']}'>
+                                                        <input class='form-check-input' type='radio' name='choose' id='flexRadioDefault{$choose['id']}' {$a}>
                                                         <label class='form-check-label' for='flexRadioDefault1'>
                                                         {$choose['name']}
                                                         </label>
@@ -184,12 +189,12 @@ use App\Model\Car;
         $(function(){
             $("#datepicker").datepicker({
                 language:'th-en',
-                format:'dd/mm/yyyy',
+                format: 'yyyy/mm/dd',
                 autoclose: true
             });
             $("#datepicker2").datepicker({
                 language:'th-en',
-                format:'dd/mm/yyyy',
+                format:'yyyy/mm/dd',
                 autoclose: true
             });
         });

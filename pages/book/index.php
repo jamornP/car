@@ -27,7 +27,6 @@ use App\Model\Book;
                                         <th>ชื่อ-สกุล</th>
                                         <!-- <th>สังกัด</th> -->
                                         <th>วันที่ใช้รถ</th>
-                                        
                                         <!-- <th>ต้นทาง</th> -->
                                         <th>ปลายทาง</th>
                                         <th>เพื่อ</th>
@@ -40,44 +39,24 @@ use App\Model\Book;
                                     <?php
                                         $bookObj = new Book;
                                         $books = $bookObj->getAllbook(); 
-                                            $i=0;
-                                            foreach($books as $book) {
-                                                $i++;
-                                                $name=$book['name']." ".$book['surname'];
-                                                echo "
-                                                    <tr>
-                                                        <td>{$i}</td>
-                                                        <td>{$book['date_register']}</td>
-                                                        <td>{$name}</td>
-                                                       
-                                                        <td>{$book['start_date']}</td>
-                                                       
-                                                        
-                                                        <td>{$book['destination']}</td>
-                                                        <td>{$book['title']}</td>
-                                                       
-                                                        <td>{$book['choose']}</td>
-                                                        <td>{$book['remark']}</td>
-                                                       
-                                                    <td>
-                                                ";
-                                                
-                                            }
+                                        $i=0;
+                                        foreach($books as $book) {
+                                            $i++;
+                                            $name=$book['name']." ".$book['surname'];
+                                            echo "
+                                                <tr>
+                                                    <td>{$i}</td>
+                                                    <td>{$book['date_register']}</td>
+                                                    <td>{$name}</td>
+                                                    <td>{$book['start_date']}</td>
+                                                    <td>{$book['destination']}</td>
+                                                    <td>{$book['title']}</td>
+                                                    <td>{$book['choose']}</td>
+                                                    <td>{$book['remark']}</td>
+                                                <td>
+                                            ";
+                                        }
                                     ?>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
