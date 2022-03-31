@@ -14,8 +14,8 @@ use App\Model\Car;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ระบบจองรถ</title>
-    <link rel="stylesheet" href="../theme/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="../theme/css/datepicker.css">
+    <link rel="stylesheet" href="../../theme/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../theme/css/datepicker.css">
 </head>
 <body class="font-mali">
     <div class="container">
@@ -170,9 +170,9 @@ use App\Model\Car;
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js'></script>
     
-    <script src='../theme/js/bootstrap-datepicker.js'></script>
-    <script src='../theme/js/bootstrap-datepicker-thai.js'></script>
-    <script src='../theme/js/locales/bootstrap-datepicker.th.js'></script>
+    <script src='../../theme/js/bootstrap-datepicker.js'></script>
+    <script src='../../theme/js/bootstrap-datepicker-thai.js'></script>
+    <script src='../../theme/js/locales/bootstrap-datepicker.th.js'></script>
     <!-- <script id="rendered-js" >
         $(function () {
         $('#datepicker').datepicker();

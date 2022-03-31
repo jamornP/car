@@ -9,7 +9,7 @@ class Department extends Db {
         $sql = "
             SELECT *
             FROM tb_department
-            ORDER BY name
+            ORDER BY id
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();

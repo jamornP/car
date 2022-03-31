@@ -9,6 +9,7 @@ class Book extends Db {
         $sql = "
             SELECT 
                 b.name,
+                b.surname,
                 b.date_register,
                 b.start_date,
                 b.end_date,
