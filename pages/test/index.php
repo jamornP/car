@@ -1,6 +1,6 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
-use App\Model\Book;
+use App\Model\Test;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ use App\Model\Book;
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>ข้อมูลจองรถ</h5>
+                        <h5>ข้อมูลประเภทรถ</h5>
                         <a href="form.php" class="btn btn-warning text-white">เพิ่มข้อมูล</a>
                     </div>
                         <div class="card-body">
@@ -26,41 +26,30 @@ use App\Model\Book;
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                       
-                                        <th>ชื่อ-สกุล</th>
-                                        <th>วันที่ใช้รถ</th>
-                                        <th>เวลา</th>
-                                        <th>ปลายทาง</th>
-                                        <th>เพื่อ</th>
-                                        <th>รถ</th>
-                                       
-                                        <th></th>
+                                        <th>name</th>
+                                        <th>surname</th>
+                                        <th>date_add</th>
+                                        <th>start_date</th>
+                                        <th>start_time</th>
+                                    
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $bookObj = new Book;
-                                        $books = $bookObj->getAllbook(); 
+                                        $testObj = new Test;
+                                        $tests = $testObj->getAllTest(); 
                                         $i=0;
-                                        foreach($books as $book) {
+                                        foreach($tests as $test) {
                                             $i++;
-                                            $name=$book['name']." ".$book['surname'];
                                             echo "
                                                 <tr>
                                                     <td>{$i}</td>
-                                                   
-                                                    <td>{$name}</td>
-                                                    <td>{$book['start_date']}</td>
-                                                    <td>{$book['start_time']}</td>
-                                                    <td>{$book['destination']}</td>
-                                                    <td>{$book['title']}</td>
-                                                    <td>{$book['car']}</td>
-                                                  
-                                                    <td>
-                                                   
-                                                    <a href='form.php?id={$book['id']}&action=edit' class=''>แก้ไข</a>
-                                                    <a href='save.php?id={$book['id']}&action=delete' class=''>ลบ</a>
-                                                    </td>
+                                                    <td>{$test['name']}</td>
+                                                    <td>{$test['surname']}</td>
+                                                    <td>{$test['date_add']}</td>
+                                                    <td>{$test['start_date']}</td>
+                                                    <td>{$test['start_time']}</td>
                                                 <td>
                                             ";
                                         }

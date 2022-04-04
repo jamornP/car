@@ -1,6 +1,6 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
-use App\Model\Book;
+use App\Model\Car;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ use App\Model\Book;
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>ข้อมูลจองรถ</h5>
+                        <h5>ข้อมูลประเภทรถ</h5>
                         <a href="form.php" class="btn btn-warning text-white">เพิ่มข้อมูล</a>
                     </div>
                         <div class="card-body">
@@ -26,41 +26,23 @@ use App\Model\Book;
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                       
-                                        <th>ชื่อ-สกุล</th>
-                                        <th>วันที่ใช้รถ</th>
-                                        <th>เวลา</th>
-                                        <th>ปลายทาง</th>
-                                        <th>เพื่อ</th>
-                                        <th>รถ</th>
-                                       
-                                        <th></th>
+                                        <th>ประเภทรถ</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $bookObj = new Book;
-                                        $books = $bookObj->getAllbook(); 
+                                        $carObj = new Car;
+                                        $cars = $carObj->getAllCar(); 
                                         $i=0;
-                                        foreach($books as $book) {
+                                        foreach($cars as $car) {
                                             $i++;
-                                            $name=$book['name']." ".$book['surname'];
                                             echo "
                                                 <tr>
                                                     <td>{$i}</td>
-                                                   
-                                                    <td>{$name}</td>
-                                                    <td>{$book['start_date']}</td>
-                                                    <td>{$book['start_time']}</td>
-                                                    <td>{$book['destination']}</td>
-                                                    <td>{$book['title']}</td>
-                                                    <td>{$book['car']}</td>
-                                                  
-                                                    <td>
-                                                   
-                                                    <a href='form.php?id={$book['id']}&action=edit' class=''>แก้ไข</a>
-                                                    <a href='save.php?id={$book['id']}&action=delete' class=''>ลบ</a>
-                                                    </td>
+                                                    
+                                                    <td>{$car['name']}</td>
+                                                    
                                                 <td>
                                             ";
                                         }

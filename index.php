@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php 
-    header('Location: pages/book.php');  
+    header('Location: pages/book/');  
 ?>
 </body>
 </html>

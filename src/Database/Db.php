@@ -5,7 +5,7 @@ use PDO;
 
 class Db{
     private $host = "localhost";
-	private $user = "root";
+	private $user = "jamornapp";
 	private $password = "sciencepwd";
 	private $dbName = "db_car";
 

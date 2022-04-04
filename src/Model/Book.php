@@ -8,18 +8,19 @@ class Book extends Db {
     public function getAllBook() {
         $sql = "
             SELECT 
+                b.id,
                 b.name,
                 b.surname,
                 b.date_register,
                 b.start_date,
+                b.start_time,
                 b.end_date,
+                b.end_time,
                 b.origin,
                 b.destination,
                 b.title,
                 b.count,
-                b.idnum,
-                b.staff,
-                b.remark,b.user_add,
+                b.remark,
                 p.name AS position,
                 d.name AS department,
                 ch.name AS choose,
@@ -36,9 +37,125 @@ class Book extends Db {
         return $data;
     }
 
+    public function addBook($book) {
+        $sql = "
+            INSERT INTO tb_book (
+                name, 
+                surname, 
+                p_id, 
+                d_id, 
+                start_date,
+                start_time, 
+                end_date, 
+                end_time,
+                origin, 
+                destination, 
+                title, 
+                count, 
+                ch_id, 
+                c_id, 
+                remark
+            ) VALUES (
+                :name, 
+                :surname, 
+                :position, 
+                :department,
+                :start_date,
+                :start_time, 
+                :end_date,
+                :end_time, 
+                :origin, 
+                :destination, 
+                :title, 
+                :count, 
+                :choose, 
+                :car,
+                :remark
+            )
+         ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($book);
+        return $this->pdo->lastInsertId();
+    }
+
+    public function deleteBook($id) {
+        $sql = "
+            DELETE FROM tb_book WHERE id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return true;
+
+    }
+
+    public function getBookById($id) {
+        $sql = "
+            SELECT 
+                b.id,
+                b.name,
+                b.surname,
+                b.date_register,
+                b.start_date,
+                b.start_time,
+                b.end_date,
+                b.end_time,
+                b.origin,
+                b.destination,
+                b.title,
+                b.count,
+                b.remark,
+                b.p_id,
+                b.d_id,
+                b.ch_id,
+                b.c_id
+            FROM 
+                `tb_book` AS b 
+                
+            WHERE
+                b.id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetchAll();
+        return $data[0];
+    }
 }
 
-
+// $sql = "
+//             INSERT INTO tb_book (
+//                 name, 
+//                 surname, 
+//                 p_id, 
+//                 d_id, 
+//                 start_date,
+//                 start_time, 
+//                 end_date, 
+//                 end_time,
+//                 origin, 
+//                 destination, 
+//                 title, 
+//                 count, 
+//                 ch_id, 
+//                 c_id, 
+//                 remark
+//             ) VALUES (
+//                 :name, 
+//                 :surname, 
+//                 :position, 
+//                 :department,
+//                 :start_date,
+//                 :start_time, 
+//                 :end_date,
+//                 :end_time, 
+//                 :origin, 
+//                 :destination, 
+//                 :title, 
+//                 :count, 
+//                 :choose, 
+//                 :car,
+//                 :remark
+//             )
+//         ";
 
 
 
