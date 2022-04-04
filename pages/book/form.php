@@ -1,18 +1,18 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
-
+error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 use App\Model\Book;
 use App\Model\Position;
 use App\Model\Department;
 use App\Model\Choose;
 use App\Model\Car;
-if(isset($_REQUEST['action'])){
+
 if($_REQUEST['action']=='edit'){
     $bookObj = new Book;
     $book = $bookObj->getBookById($_REQUEST['id']);
 }
-}
-echo $_REQUEST['action'];
+
+
 
 ?>
 <!DOCTYPE html>
@@ -31,12 +31,13 @@ echo $_REQUEST['action'];
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>แบบฟอร์ม จองรถ คณะวิทยาศาสตร์</h5>
+                        <h5>แบบฟอร์ม<?php echo ($_REQUEST['action']=='edit') ? " แก้ไขข้อมูลจองรถ" : " เพิ่มข้อมูลจองรถ";?></h5>
                         <a href="index.php" class="btn btn-primary">ย้อนกลับ</a>
                     </div>
                         <div class="card-body">
                             <form action="save.php" method="get">
-                                <input type="text" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
+                                <input type="hidden" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
+                                <input type="hidden" name="id" value="<?php echo $book['id']; ?>">
                                 <p class="mt-3"><b>ผู้ขอ</b></p>
                                 <hr>
                                 <div class="row">

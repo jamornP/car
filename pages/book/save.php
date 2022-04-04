@@ -8,10 +8,15 @@ if ($_REQUEST['action']=='delete'){
     $bookObj->deleteBook($_REQUEST['id']);
 }
 elseif ($_REQUEST['action']=='edit'){
-    $bookObj->updateBook($_REQUEST);
+    $book = $_REQUEST;
+    unset($book['action']);
+    $bookObj->updateBook($book);
 }
 elseif ($_REQUEST['action']=='add'){
-    $bookObj->addBook($_REQUEST);
+    $book = $_REQUEST;
+    unset($book['action']);
+    unset($book['id']);
+    $bookObj->addBook($book);
 }
 
 header('Location: index.php');
