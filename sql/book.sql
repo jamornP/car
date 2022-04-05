@@ -20,10 +20,10 @@ CREATE TABLE db_car.tb_book (
     count INT NOT NULL COMMENT 'จำนวนผู้โดยสาร' , 
     ch_id INT NOT NULL COMMENT 'ID ตัวเลือกรับส่ง' , 
     c_id INT NOT NULL COMMENT 'ID ประเภทรถ' , 
-    idnum VARCHAR(255) NOT NULL COMMENT 'เลขทะเบียนรถ' , 
-    staff VARCHAR(255) NOT NULL COMMENT 'คนขับรถ' , 
+    idnum VARCHAR(255) NULL COMMENT 'เลขทะเบียนรถ' , 
+    staff VARCHAR(255) NULL COMMENT 'คนขับรถ' , 
     remark TEXT NOT NULL COMMENT 'รายละเอียดการรับส่ง' , 
-    user_add VARCHAR(50) NOT NULL COMMENT 'USER ผู้กรอกข้อมูล' , 
+    user_add VARCHAR(50) NULL COMMENT 'USER ผู้กรอกข้อมูล' , 
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
