@@ -107,10 +107,17 @@ class Book extends Db {
                 b.p_id,
                 b.d_id,
                 b.ch_id,
-                b.c_id
+                b.c_id,
+                p.name as position,
+                d.name as department,
+                ch.name as choose,
+                c.name as car
             FROM 
-                `tb_book` AS b 
-                
+                tb_book AS b 
+                LEFT JOIN tb_position AS p ON b.p_id = p.id
+                LEFT JOIN tb_department AS d ON b.d_id = d.id
+                LEFT JOIN tb_choose AS ch ON b.ch_id = ch.id
+                LEFT JOIN tb_car AS c ON b.c_id = c.id
             WHERE
                 b.id = ?
         ";
@@ -118,6 +125,30 @@ class Book extends Db {
         $stmt->execute([$id]);
         $data = $stmt->fetchAll();
         return $data[0];
+    }
+    public function updateBook($book) {
+        $sql = "
+            UPDATE tb_book SET
+                name = :name, 
+                surname = :surname, 
+                p_id = :position, 
+                d_id = :department, 
+                start_date = :start_date,
+                start_time = :start_time, 
+                end_date = :end_date, 
+                end_time = :end_time,
+                origin = :origin, 
+                destination = :destination, 
+                title = :title, 
+                count = :count, 
+                ch_id = :choose, 
+                c_id = :car, 
+                remark= :remark
+            WHERE id = :id
+         ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($book);
+        return true;
     }
 }
 

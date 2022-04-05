@@ -19,7 +19,11 @@ use App\Model\Book;
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
                         <h5>ข้อมูลจองรถ</h5>
+                        <div>
+                        <a href="../../" class="btn btn-success text-white">ดูปฏิทิน</a>
                         <a href="form.php" class="btn btn-warning text-white">เพิ่มข้อมูล</a>
+                        </div>
+                        
                     </div>
                         <div class="card-body">
                             <table class="table">
