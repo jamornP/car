@@ -46,7 +46,7 @@ use App\Model\Statusbook;
                                             <tr>
                                                 <td>{$i}</td>
                                                 <td>{$status['name']}</td>
-                                                <td><input type='color' class='form-control ' value='{$status['color']}'></td>
+                                                <td><input type='color' class=''  value='{$status['color']}'></td>
                                                 
                                             <td>
                                         ";
