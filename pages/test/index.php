@@ -11,8 +11,10 @@ use App\Model\Test;
     <title>ระบบจองรถ</title>
     <link rel="stylesheet" href="../../theme/css/bootstrap-theme.css">
     <link rel="stylesheet" href="../../theme/css/datepicker.css">
+    <!-- icon -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body class="font-mali">
+<body class="font-kanit">
     <div class="container">
         <div class="row mt-5">
             <div class="col">

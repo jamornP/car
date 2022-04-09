@@ -18,10 +18,9 @@ CREATE TABLE db_car.tb_book (
     destination VARCHAR(255) NOT NULL COMMENT 'ปลายทาง' , 
     title VARCHAR(255) NOT NULL COMMENT 'เหตุผลขอใช้รถ' , 
     count INT NOT NULL COMMENT 'จำนวนผู้โดยสาร' , 
+    list TEXT NULL COMMENT 'รายละเอียดการรับส่ง' , 
     ch_id INT NOT NULL COMMENT 'ID ตัวเลือกรับส่ง' , 
     c_id INT NOT NULL COMMENT 'ID ประเภทรถ' , 
-    idnum VARCHAR(255) NULL COMMENT 'เลขทะเบียนรถ' , 
-    staff VARCHAR(255) NULL COMMENT 'คนขับรถ' , 
     remark TEXT NOT NULL COMMENT 'รายละเอียดการรับส่ง' , 
     user_add VARCHAR(50) NULL COMMENT 'USER ผู้กรอกข้อมูล' , 
     PRIMARY KEY (id)
@@ -42,11 +41,10 @@ INSERT INTO tb_book (
     origin, 
     destination, 
     title, 
-    count, 
+    count,
+    list, 
     ch_id, 
     c_id, 
-    idnum, 
-    staff, 
     remark, 
     user_add
 ) VALUES (
@@ -63,11 +61,10 @@ INSERT INTO tb_book (
     'คณะวิทยาศาสตร์', 
     'สุพรรณบุรี', 
     'ไปอบรม', 
-    '4', 
+    '1', 
+    '1.จามร เพ็งสวย'
     '1', 
     '1', 
-    'กจ8472', 
-    'บุญส่ง', 
     'ไปส่งแล้วกลับมารับวันที่ 11 เมษายน 2565', 
     'user1'
 );

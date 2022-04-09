@@ -3,7 +3,8 @@
 
 use App\Model\Book;
 $bookObj = new Book;
-// echo $_REQUEST['action'];
+print_r($_REQUEST);
+echo $_REQUEST['action'];
 if ($_REQUEST['action']=='delete'){
     $bookObj->deleteBook($_REQUEST['id']);
 }

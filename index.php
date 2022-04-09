@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./fullcalendar/fullcalendar.css">
     <link rel="stylesheet" href="./fullcalendar/fullcalendar.print.css" media='print'>
     <link rel="stylesheet" href="./theme/css/bootstrap-theme.css">
+    <!-- icon -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    
 
     <script src="./lib/jquery/dist/jquery.min.js"></script>
     <script src="./lib/moment.min.js"></script>
@@ -16,11 +19,13 @@
     <script src="./lib/lang/th.js"></script>
     <script src="./lib/jquery.fancybox.pack.js"></script>
 </head>
-<body class="font-mali">
+<body class="font-kanit">
+
+<div class="">
 <?php 
-    //header('Location: pages/book/'); 
-     
+    require('nav.php');
 ?>
+</div>
     <div class="container mt-5">
         <div class="row">
             <div class="col">
@@ -41,6 +46,7 @@
         
         </div>
     </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js'></script>
     <script type="text/javascript">
     jQuery(document).ready(function() {
 

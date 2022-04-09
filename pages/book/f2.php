@@ -25,20 +25,15 @@ if($_REQUEST['action']=='edit'){
     <title>ระบบจองรถ</title>
     <link rel="stylesheet" href="../../theme/css/bootstrap-theme.css">
     <link rel="stylesheet" href="../../theme/css/datepicker.css">
-    <!-- icon -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="font-kanit">
-    <div class="">
-        <?php require('../../nav.php');?>
-    </div>
     <div class="container">
         <div class="row mt-5">
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
                         <h5>แบบฟอร์ม<?php echo ($_REQUEST['action']=='edit') ? " แก้ไขข้อมูลจองรถ" : " เพิ่มข้อมูลจองรถ";?></h5>
-                        
+                        <a href="index.php" class="btn btn-primary">ย้อนกลับ</a>
                     </div>
                         <div class="card-body">
                             <form action="save.php" method="get">
@@ -49,19 +44,19 @@ if($_REQUEST['action']=='edit'){
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="name" class="form-label">ชื่อ</label>
+                                            <label for="name">ชื่อ</label>
                                             <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $book['name']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="surname"class="form-label">นามสกุล</label>
+                                            <label for="surname">นามสกุล</label>
                                             <input type="text" id="surname" class="form-control" name="surname" required value="<?php echo $book['surname']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="position"class="form-label">ตำแหน่ง</label>
+                                            <label for="position">ตำแหน่ง</label>
                                             <select class="form-select" aria-label="Default select example" id="position" name="position" required>
                                                 <option  value="">เลือก</option>
                                                 <?php
@@ -80,7 +75,7 @@ if($_REQUEST['action']=='edit'){
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="department"class="form-label">สังกัด</label>
+                                            <label for="department">สังกัด</label>
                                             <select class="form-select" aria-label="Default select example" id="department" name="department" required>
                                                 <option value="">เลือก</option>
                                                 <?php
@@ -103,13 +98,13 @@ if($_REQUEST['action']=='edit'){
                                 <div class="row">
                                     <div class="col-6 col-sm-6 col-md-6 col-lg">
                                         <div class="form-group">
-                                            <label for="datepicker"class="form-label">วันที่</label>
+                                            <label for="datepicker">วันที่</label>
                                             <input type="text" id="datepicker" class="form-control" name="start_date" required autocomplete="off" value="<?php echo $book['start_date']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-6 col-md-6 col-lg-2">
                                         <div class="form-group">
-                                            <label for="start_time"class="form-label">เวลา</label>
+                                            <label for="start_time">เวลา</label>
                                             <select class="form-select" aria-label="Default select example" id="start_time" name="start_time" required>
                                                 <option value="">เลือก</option>
                                                 <?php
@@ -128,13 +123,13 @@ if($_REQUEST['action']=='edit'){
                                     </div>
                                     <div class="col-6 col-sm-6 col-md-6 col-lg">
                                         <div class="form-group">
-                                            <label for="datepicker2"class="form-label">ถึงวันที่</label>
+                                            <label for="datepicker2">ถึงวันที่</label>
                                             <input type="text" id="datepicker2" class="form-control" name="end_date" required autocomplete="off" value="<?php echo $book['end_date']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-6 col-md-6 col-lg-2">
                                         <div class="form-group">
-                                            <label for="end_time"class="form-label">เวลา</label>
+                                            <label for="end_time">เวลา</label>
                                             <select class="form-select" aria-label="Default select example" id="end_time" name="end_time" required>
                                                 <option value="">เลือก</option>
                                                 <?php
@@ -155,68 +150,64 @@ if($_REQUEST['action']=='edit'){
                                 <p class="mt-3"><b>รายละเอียดการเดินทาง</b></p>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="origin"class="form-label">จุดขึ้นรถ</label>
-                                            <input type="text" class="form-control" id="origin" name="origin" required value="">
+                                            <label for="origin">ต้นทาง</label>
+                                            <input type="text" class="form-control" id="origin" name="origin" required value="<?php echo $book['origin']; ?>">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="destination"class="form-label">ขออนุญาตใช้รถไปที่ไหน</label>
+                                            <label for="destination">ปลายทาง</label>
                                             <input type="text" class="form-control" id="destination" name="destination" required value="<?php echo $book['destination']; ?>">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="col-sm-12 col-md col-lg">
                                         <div class="form-group">
-                                            <label for="title"class="form-label">ขออนุญาตใช้รถเพื่อ</label>
+                                            <label for="title">อนุญาตใช้รถ (ไปที่ไหน)</label>
                                             <input type="text" class="form-control" id="title" name="title" required value="<?php echo $book['title']; ?>">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-3 col-lg-2">
+                                    <div class="col-sm-12 col-md col-lg-2">
                                         <div class="form-group">
-                                            <label for="count"class="form-label">จำนวนผู้เดินทาง</label>
+                                            <label for="count">ผู้โดยสาร</label>
                                             <input type="text" class="form-control" id="count" name="count" required value="<?php echo $book['count']; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6 col-lg">
-                                        <div class="form-group">
-                                            <label for="list"class="form-label">รายชื่อ</label>
-                                            <textarea rows="<?php echo 5;?>" class="form-control" id="list" name="list" required><?php echo $book['list']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <p class="mt-3"><b>ความประสงของผู้ใช้รถ</b></p>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-lg-3">
-                                        <div class="form-group">
-                                            <label for="count"class="form-label">เลือกการรับส่ง</label>
-                                                <?php
-                                                    $chooseObj = new Choose;
-                                                    $chooses = $chooseObj->getAllchoose(); 
-                                                    $i=0;
-                                                    foreach($chooses as $choose) {
-                                                        $selected =($choose['id']==$book['ch_id'] OR ($i==0)) ? 
-                                                        "checked" : "";
-                                                        echo "
-                                                            <div class='form-check'>
-                                                                <input class='form-check-input' type='radio' name='choose' id='flexRadioDefault{$choose['id']}' {$selected} value='{$choose['id']}'>
-                                                                <label class='form-check-label' for='flexRadioDefault{$choose['id']}'>
-                                                                {$choose['name']}
-                                                                </label>
-                                                            </div>
-                                                        ";
-                                                        $i++;
-                                                    }
-                                                    
-                                                ?>
-                                        </div>
+                                    <div class="col-sm-12 col-md-4 col-lg-3">
+                                        <?php
+                                            $chooseObj = new Choose;
+                                            $chooses = $chooseObj->getAllchoose(); 
+                                            $i=0;
+                                            foreach($chooses as $choose) {
+                                                // if($i == 0){
+                                                //     $a="checked";
+                                                // }else{
+                                                //     $a="";
+                                                // }
+                                                $selected =($choose['id']==$book['ch_id']) ? 
+                                                "checked" : "";
+                                                echo "
+                                                    <div class='form-check'>
+                                                        <input class='form-check-input' type='radio' name='choose' id='flexRadioDefault{$choose['id']}' {$selected} value='{$choose['id']}'>
+                                                        <label class='form-check-label' for='flexRadioDefault{$choose['id']}'>
+                                                        {$choose['name']}
+                                                        </label>
+                                                    </div>
+                                                ";
+                                                $i++;
+                                            }
+                                            
+                                        ?>
                                     </div>
                                     
-                                    <div class="col-sm-12 col-md-6 col-lg-3">
+                                    <div class="col-sm-12 col-md-4 col-lg-3">
                                     <div class="form-group">
-                                            <label for="car"class="form-label">ประเถทรถ</label>
+                                            <label for="car">ประเถทรถ</label>
                                             <select class="form-select" aria-label="Default select example" id="car" name="car" required>
                                                 <option value="">เลือก</option>
                                                 <?php
@@ -233,17 +224,15 @@ if($_REQUEST['action']=='edit'){
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-12 col-lg">
+                                    <div class="col-sm-12 col-md col-lg">
                                         <div class="form-group">
-                                            <label for="remark"class="form-label">หมายเหตุ</label>
-                                            <textarea rows="<?php echo $i;?>" class="form-control" id="remark" name="remark" required><?php echo $book['remark']; ?></textarea>
+                                            <label for="remark">รายละเอียดเพิ่มเติม</label>
+                                            <textarea rows="<?php echo $i-1;?>" class="form-control" id="remark" name="remark" required><?php echo $book['remark']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
+                                <div class="row mt-2 d-flex justify-content-rigth">
                                     <button class="btn btn-success text-white" type="submit">บันทึก</button>
-                                    <a href="/car/" class="btn btn-warning text-white">ย้อนกลับ</a>
                                 </div>
                                 
                             </form>
