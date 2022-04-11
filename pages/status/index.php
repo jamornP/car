@@ -47,8 +47,11 @@ use App\Model\Statusbook;
                                                 <td>{$i}</td>
                                                 <td>{$status['name']}</td>
                                                 <td><input type='color' class=''  value='{$status['color']}'></td>
-                                                
-                                            <td>
+                                                <td>
+                                                    <a href='form.php?id={$status['id']}&action=edit' class=''>แก้ไข</a>
+                                                    <a href='save.php?id={$status['id']}&action=delete' class=''>ลบ</a>
+                                                </td>
+                                            </tr>
                                         ";
                                     }
                                 ?>

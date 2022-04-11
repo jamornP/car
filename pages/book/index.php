@@ -69,11 +69,10 @@ use App\Model\Timebook;
                                                     <td>{$book['car']}</td>
                                                   
                                                     <td>
-                                                   
-                                                    <a href='form.php?id={$book['id']}&action=edit' class=''>แก้ไข</a>
-                                                    <a href='save.php?id={$book['id']}&action=delete' class=''>ลบ</a>
+                                                        <a href='form.php?id={$book['id']}&action=edit' class=''>แก้ไข</a>
+                                                        <a href='save.php?id={$book['id']}&action=delete' class=''>ลบ</a>
                                                     </td>
-                                                <td>
+                                                </tr>
                                             ";
                                         }
                                     ?>

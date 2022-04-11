@@ -1,3 +1,13 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
+<?php
+
+use App\Model\Statusbook;
+
+if($_REQUEST['action']=='edit'){
+    $statusObj = new Statusbook;
+    $status = $statusObj->getStatusById($_REQUEST['id']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,19 +35,19 @@
                     <div class="card-body">
                         <form action="save.php" method="get">
                             <input type="hidden" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
-                            <input type="hidden" name="id" value="<?php echo $book['id']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $status['id']; ?>">
                             <!-- <p class="mt-3"><b>ผู้ขอ</b></p>
                             <hr> -->
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-3">
                                     <div class="form-group">
                                         <label for="name" class="form-label">สถานะ</label>
-                                        <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $book['name']; ?>">
+                                        <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $status['name']; ?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-3">
                                     <label for="exampleColorInput" class="form-label">เลือกสี</label>
-                                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#17D337" title="Choose your color" name="color">
+                                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="<?php echo $status['color']; ?>" title="Choose your color" name="color">
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-3">
                                 
