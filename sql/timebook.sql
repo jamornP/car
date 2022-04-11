@@ -8,6 +8,8 @@ INSERT INTO `tb_timebook` (
     `id`, 
     `time`
 ) VALUES
+(NULL, '05:00'),
+(NULL, '05:30'),
 (NULL, '06:00'),
 (NULL, '06:30'),
 (NULL, '07:00'),
@@ -32,4 +34,12 @@ INSERT INTO `tb_timebook` (
 (NULL, '16:30'),
 (NULL, '17:00'),
 (NULL, '17:30'),
-(NULL, '18:00');
+(NULL, '18:00'),
+(NULL, '18:30'),
+(NULL, '19:00'),
+(NULL, '19:30'),
+(NULL, '20:00'),
+(NULL, '20:30'),
+(NULL, '21:00'),
+(NULL, '21:30'),
+(NULL, '22:00');
