@@ -51,8 +51,8 @@ use App\Model\Statusbook;
                                                 <td>{$status['name']}</td>
                                                 <td><input type='color' class=''  value='{$status['color']}'></td>
                                                 <td align='right'>
-                                                        <a href='form.php?id={$status['id']}&action=edit' class='me-md-2 btn btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
-                                                        <a href='save.php?id={$status['id']}&action=delete' class='btn btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
+                                                        <a href='form.php?id={$status['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
+                                                        <a href='save.php?id={$status['id']}&action=delete' class='btn btn-sm btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
                                                     </td>
                                             </tr>
                                         ";

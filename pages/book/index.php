@@ -68,10 +68,14 @@ use App\Model\Timebook;
                                                     <td>{$book['destination']}</td>
                                                     <td>{$book['title']}</td>
                                                     <td>{$book['car']}</td>
-                                                    <td><a href='' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a></td>
                                                     <td>
-                                                        <a href='form.php?id={$book['id']}&action=edit' class=''>แก้ไข</a>
-                                                        <a href='save.php?id={$book['id']}&action=delete' class=''>ลบ</a>
+                                                        <div class='d-grid'>
+                                                            <a href='' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a>
+                                                        </div>
+                                                    </td>
+                                                    <td align='right'>
+                                                        <a href='form.php?id={$book['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'>แก้ไข</a>
+                                                        <a href='save.php?id={$book['id']}&action=delete' class='me-md-2 btn btn-sm btn-danger text-white'>ลบ</a>
                                                     </td>
                                                 </tr>
                                             ";
