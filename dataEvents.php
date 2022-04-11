@@ -11,7 +11,7 @@
 
     foreach($books as $book) {
         
-            $color = '0EF68B';
+            
        
         $json_data[] = [
             'id' => $book['id'],
@@ -20,7 +20,7 @@
             'start' => $book['start_date']." ".$book['start_time'] ,
             'end' => $book['end_date']." ".$book['end_time'],
             'url' => 'showEventsData.php?id=' . $book['id'],
-             'color' => $color,
+             'color' =>  $book['color'],
         ];
     }
     $json = json_encode($json_data);

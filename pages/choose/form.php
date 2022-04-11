@@ -1,11 +1,11 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 
-use App\Model\Car;
+use App\Model\Choose;
 
 if($_REQUEST['action']=='edit'){
-    $carObj = new Car;
-    $car = $carObj->getCarById($_REQUEST['id']);
+    $chooseObj = new Choose;
+    $choose = $chooseObj->getChooseById($_REQUEST['id']);
 }
 
 ?>
@@ -31,7 +31,7 @@ if($_REQUEST['action']=='edit'){
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>แบบฟอร์ม<?php echo ($_REQUEST['action']=='edit') ? " แก้ไขข้อมูลรถ" : " เพิ่มข้อมูลรถ";?></h5>
+                        <h5>แบบฟอร์ม<?php echo ($_REQUEST['action']=='edit') ? " แก้ไขข้อมูลการรับส่ง" : " เพิ่มข้อมูลการรับส่ง";?></h5>
                         <!-- <a href="index.php" class="btn btn-primary">ย้อนกลับ</a> -->
                     </div>
                         <div class="card-body">
@@ -39,18 +39,18 @@ if($_REQUEST['action']=='edit'){
                                 <!-- <p class="mt-3"><b>ชนิดรถ</b></p>
                                 <hr> -->
                                 <input type="hidden" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
-                                <input type="hidden" name="id" value="<?php echo $car['id']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $choose['id']; ?>">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="name" class="form-label">ชื่อชนิดรถ</label>
-                                            <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $car['name']; ?>">
+                                            <label for="name" class="form-label">การรับส่ง</label>
+                                            <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $choose['name']; ?>">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
                                     <button class="btn btn-success text-white" type="submit">บันทึก</button>
-                                    <a href="/car/pages/car/" class="btn btn-warning text-white">ย้อนกลับ</a>
+                                    <a href="/car/pages/choose/" class="btn btn-warning text-white">ย้อนกลับ</a>
                                 </div>
                                 
                             </form>

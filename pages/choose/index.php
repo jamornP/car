@@ -1,6 +1,6 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
-use App\Model\Car;
+use App\Model\Choose;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,18 +38,18 @@ use App\Model\Car;
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $carObj = new Car;
-                                        $cars = $carObj->getAllCar(); 
+                                        $chooseObj = new Choose;
+                                        $chooses = $chooseObj->getAllChoose(); 
                                         $i=0;
-                                        foreach($cars as $car) {
+                                        foreach($chooses as $choose) {
                                             $i++;
                                             echo "
                                                 <tr  valign='middle'>
                                                     <td>{$i}</td>
-                                                    <td>{$car['name']}</td>
+                                                    <td>{$choose['name']}</td>
                                                     <td align='right'>
-                                                        <a href='form.php?id={$car['id']}&action=edit' class='me-md-2 btn btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
-                                                        <a href='save.php?id={$car['id']}&action=delete' class='btn btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
+                                                        <a href='form.php?id={$choose['id']}&action=edit' class='me-md-2 btn btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
+                                                        <a href='save.php?id={$choose['id']}&action=delete' class='btn btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
                                                     </td>
                                                     
                                                 <tr>

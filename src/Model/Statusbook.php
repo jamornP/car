@@ -8,7 +8,7 @@ class Statusbook extends Db {
         $sql = "
             SELECT *
             FROM tb_status
-            ORDER BY name
+            ORDER BY id
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();

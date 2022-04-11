@@ -1,6 +1,6 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
-use App\Model\Car;
+use App\Model\Department;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@ use App\Model\Car;
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>ข้อมูลประเภทรถ</h5>
+                        <h5>ข้อมูลสังกัด</h5>
                         <a href="form.php" class="btn btn-warning text-white"><i class='bx bx-plus-medical' ></i> เพิ่มข้อมูล</a>
                     </div>
                         <div class="card-body">
@@ -31,25 +31,25 @@ use App\Model\Car;
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>ประเภทรถ</th>
+                                        <th>สังกัด</th>
                                         <th></th>
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $carObj = new Car;
-                                        $cars = $carObj->getAllCar(); 
+                                        $departmentObj = new Department;
+                                        $departments = $departmentObj->getAllDepartment(); 
                                         $i=0;
-                                        foreach($cars as $car) {
+                                        foreach($departments as $department) {
                                             $i++;
                                             echo "
                                                 <tr  valign='middle'>
                                                     <td>{$i}</td>
-                                                    <td>{$car['name']}</td>
+                                                    <td>{$department['name']}</td>
                                                     <td align='right'>
-                                                        <a href='form.php?id={$car['id']}&action=edit' class='me-md-2 btn btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
-                                                        <a href='save.php?id={$car['id']}&action=delete' class='btn btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
+                                                        <a href='form.php?id={$department['id']}&action=edit' class='me-md-2 btn btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
+                                                        <a href='save.php?id={$department['id']}&action=delete' class='btn btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
                                                     </td>
                                                     
                                                 <tr>

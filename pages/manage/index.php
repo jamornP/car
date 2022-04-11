@@ -68,7 +68,8 @@ use App\Model\Timebook;
                                                     <td>{$book['destination']}</td>
                                                     <td>{$book['title']}</td>
                                                     <td>{$book['car']}</td>
-                                                    <td><a href='' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a></td>
+                                                    <td><a href='form.php?id={$book['id']}&action=edit' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a></td>
+                                                  
                                                     <td>
                                                         <a href='form.php?id={$book['id']}&action=edit' class=''>แก้ไข</a>
                                                         <a href='save.php?id={$book['id']}&action=delete' class=''>ลบ</a>

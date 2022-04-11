@@ -27,10 +27,10 @@
             <li><a class="dropdown-item" href="/car/pages/book/index.php">ข้อมูลการจองรถ</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/car/pages/car/index.php">ข้อมูลรถ</a></li>
-            <li><a class="dropdown-item" href="#">ข้อมูลสถานะ</a></li>
-            <li><a class="dropdown-item" href="#">ข้อมูลตำแหน่ง</a></li>
-            <li><a class="dropdown-item" href="#">ข้อมูลสังกัด</a></li>
-            <li><a class="dropdown-item" href="#">ข้อมูลการรับส่ง</a></li>
+            <li><a class="dropdown-item" href="/car/pages/status/index.php">ข้อมูลสถานะ</a></li>
+            <li><a class="dropdown-item" href="/car/pages/position/index.php">ข้อมูลตำแหน่ง</a></li>
+            <li><a class="dropdown-item" href="/car/pages/department/index.php">ข้อมูลสังกัด</a></li>
+            <li><a class="dropdown-item" href="/car/pages/choose/index.php">ข้อมูลการรับส่ง</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">ข้อมูลสมาชิก</a></li>
           </ul>

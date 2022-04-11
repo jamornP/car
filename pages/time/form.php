@@ -39,7 +39,7 @@ if($_REQUEST['action']=='edit'){
                                 <!-- <p class="mt-3"><b>ชนิดรถ</b></p>
                                 <hr> -->
                                 <input type="hidden" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
-                                <input type="hidden" name="id" value="<?php echo $car['id']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $book['id']; ?>">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">

@@ -24,13 +24,16 @@ class Book extends Db {
                 p.name AS position,
                 d.name AS department,
                 ch.name AS choose,
-                c.name AS car
+                c.name AS car,
+                s.name as status,
+                s.color as color
             FROM 
                 `tb_book` AS b 
                 LEFT JOIN tb_position AS p ON b.p_id = p.id
                 LEFT JOIN tb_department AS d ON b.d_id = d.id
                 LEFT JOIN tb_choose AS ch ON b.ch_id = ch.id
                 LEFT JOIN tb_car AS c ON b.c_id = c.id
+                LEFT JOIN tb_status AS s ON b.s_id = s.id
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
@@ -111,13 +114,16 @@ class Book extends Db {
                 p.name as position,
                 d.name as department,
                 ch.name as choose,
-                c.name as car
+                c.name as car,
+                s.name as status,
+                s.color as color
             FROM 
                 tb_book AS b 
                 LEFT JOIN tb_position AS p ON b.p_id = p.id
                 LEFT JOIN tb_department AS d ON b.d_id = d.id
                 LEFT JOIN tb_choose AS ch ON b.ch_id = ch.id
                 LEFT JOIN tb_car AS c ON b.c_id = c.id
+                LEFT JOIN tb_status AS s ON b.s_id = s.id
             WHERE
                 b.id = ?
         ";

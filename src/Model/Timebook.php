@@ -8,7 +8,7 @@ class Timebook extends Db {
         $sql = "
             SELECT *
             FROM tb_timebook
-            ORDER BY id
+            ORDER BY time
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
