@@ -35,8 +35,8 @@ use App\Model\Car;
     <div class="row">
         <div class="col-12">
             <div class="card md-2">
-                <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                    <p>รายละเอียด</p>
+                <div class="card-header text-white align-items-center"style="background-color:<?php echo $book['color'];?>">
+                    <h5>รายละเอียด</h5>
                 </div>
                 <div class="card-body">
                     
@@ -182,6 +182,18 @@ use App\Model\Car;
                         <div class="col-sm mt-0">
                             <div class="alert alert-sm alert-success">
                                 <?php echo $book['department'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>สถานะ</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm text-white" style="background-color:<?php echo $book['color'];?>">
+                                <?php echo $book['status'];?>
                             </div>
                         </div>
                     </div>
