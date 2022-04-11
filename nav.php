@@ -24,7 +24,7 @@
             จัดการข้อมูลระบบ
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/car/pages/book/index.php">ข้อมูลการจองรถ</a></li>
+            <li><a class="dropdown-item" href="/car/pages/manage/index.php">ข้อมูลการจองรถ</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/car/pages/car/index.php">ข้อมูลรถ</a></li>
             <li><a class="dropdown-item" href="/car/pages/status/index.php">ข้อมูลสถานะ</a></li>
