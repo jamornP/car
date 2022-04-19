@@ -1,4 +1,4 @@
-<?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>
+
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));

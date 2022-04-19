@@ -11,27 +11,29 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="font-kanit vh-100 d-flex justify-content-center align-items-center">
-<div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-primary border-success text-center text-white "><h3>เข้าสู่ระบบ</h3></div>
-  <div class="card-body text-success">
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" class="form-control" name="email" autofocus required >
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-group">
-                <label for="password"class="form-label">Password</label>
-                <input type="password" id="password" class="form-control" name="password" required >
-            </div>
-        </div>
-    </div>
-  </div>
-  <div class="card-footer bg-transparent border-success text-center">
-  <button type="submit" class="btn btn-primary ">Login</button>
-  </div>
-</div>
+    <div class="card mb-3">
+		<div class="card-header bg-primary text-white">
+			<h4>เข้าสู่ระบบ</h4>
+		</div>
+		<div class="card-body">
+			<form action="checkLogin.php" class="mb-3" method="POST">
+				<?php
+					if($_GET['msg']) {
+						echo "<h5 class='my-3 text-danger'>Password ไม่ถูกต้อง กรุณาลองอีกครั้ง</h5>";
+					}
+				?>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" class="form-control" required>
+				</div>
+				<button type="submit" class="btn btn-primary mt-2">Login</button>
+			</form>
+			<a href="register.php">สมัครใช้งานใหม่</a>
+		</div>
+	</div>
 </body>
 </html>
