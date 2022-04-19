@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 
@@ -24,7 +25,8 @@ if($_REQUEST['action']=='edit'){
 </head>
 <body class="font-kanit">
     <div class="">
-        <?php require('../../nav.php');?>
+        <?php require $_SERVER['DOCUMENT_ROOT']."/car/inc/components/navbar.php";?>
+
     </div>
     <div class="container">
         <div class="row mt-5">

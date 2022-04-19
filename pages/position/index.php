@@ -1,6 +1,8 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 use App\Model\Position;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +18,8 @@ use App\Model\Position;
 </head>
 <body class="font-kanit">
     <div class="">
-        <?php require('../../nav.php');?>
+        <?php require $_SERVER['DOCUMENT_ROOT']."/car/inc/components/navbar.php";?>
+
     </div>
     <div class="container">
         <div class="row mt-5">

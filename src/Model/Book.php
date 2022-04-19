@@ -55,6 +55,7 @@ class Book extends Db {
                 destination, 
                 title, 
                 count, 
+                people, 
                 ch_id, 
                 c_id, 
                 remark
@@ -71,6 +72,7 @@ class Book extends Db {
                 :destination, 
                 :title, 
                 :count, 
+                :people, 
                 :choose, 
                 :car,
                 :remark
@@ -106,6 +108,7 @@ class Book extends Db {
                 b.destination,
                 b.title,
                 b.count,
+                b.people,
                 b.remark,
                 b.p_id,
                 b.d_id,
@@ -147,6 +150,7 @@ class Book extends Db {
                 destination = :destination, 
                 title = :title, 
                 count = :count, 
+                people = :people, 
                 ch_id = :choose, 
                 c_id = :car, 
                 remark= :remark

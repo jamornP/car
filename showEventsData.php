@@ -202,7 +202,9 @@ use App\Model\Car;
             </div>
         </div>
     
-        <div class="col-sm"></div>
+        <div class="col-sm">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        </div>
     </div>
 </body>
 </html>

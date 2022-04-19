@@ -23,7 +23,8 @@
 
 <div class="">
 <?php 
-    require('nav.php');
+    require $_SERVER['DOCUMENT_ROOT']."/car/inc/components/navbar.php";
+
 ?>
 </div>
     <div class="container mt-5">

@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
@@ -30,7 +31,8 @@ if($_REQUEST['action']=='edit'){
 </head>
 <body class="font-kanit">
     <div class="">
-        <?php require('../../nav.php');?>
+        <?php require $_SERVER['DOCUMENT_ROOT']."/car/inc/components/navbar.php";?>
+
     </div>
     <div class="container">
         <div class="row mt-5">
@@ -181,8 +183,8 @@ if($_REQUEST['action']=='edit'){
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg">
                                         <div class="form-group">
-                                            <label for="list"class="form-label">รายชื่อ</label>
-                                            <textarea rows="<?php echo 5;?>" class="form-control" id="list" name="list" required><?php echo $book['list']; ?></textarea>
+                                            <label for="people"class="form-label">รายชื่อ</label>
+                                            <textarea rows="<?php echo 5;?>" class="form-control" id="people" name="people" required><?php echo $book['people']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +247,7 @@ if($_REQUEST['action']=='edit'){
                                     <button class="btn btn-success text-white" type="submit">บันทึก</button>
                                     <a href="/car/" class="btn btn-warning text-white">ย้อนกลับ</a>
                                 </div>
-                                
+                               
                             </form>
                         </div>
                     </div>

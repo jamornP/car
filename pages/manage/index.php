@@ -1,8 +1,10 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 require ('../function.php');
 use App\Model\Book;
 use App\Model\Timebook;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,8 @@ use App\Model\Timebook;
 </head>
 <body class="font-kanit">
     <div class="container-fuld">
-        <?php require('../../nav.php');?>
+        <?php require $_SERVER['DOCUMENT_ROOT']."/car/inc/components/navbar.php";?>
+
     </div>
     <div class="container">
         <div class="row mt-5">

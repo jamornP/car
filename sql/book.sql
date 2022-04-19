@@ -18,10 +18,11 @@ CREATE TABLE db_car.tb_book (
     destination VARCHAR(255) NOT NULL COMMENT 'ปลายทาง' , 
     title VARCHAR(255) NOT NULL COMMENT 'เหตุผลขอใช้รถ' , 
     count INT NOT NULL COMMENT 'จำนวนผู้โดยสาร' , 
-    list TEXT NULL COMMENT 'รายละเอียดการรับส่ง' , 
+    people TEXT NULL COMMENT 'รายชื่อผู้ที่ไป' ,
     ch_id INT NOT NULL COMMENT 'ID ตัวเลือกรับส่ง' , 
     c_id INT NOT NULL COMMENT 'ID ประเภทรถ' , 
     remark TEXT NOT NULL COMMENT 'รายละเอียดการรับส่ง' , 
+    s_id INT NOT NULL DEFAULT '1' COMMENT 'ID สถานะใบขอ' , 
     user_add VARCHAR(50) NULL COMMENT 'USER ผู้กรอกข้อมูล' , 
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
@@ -33,7 +34,6 @@ INSERT INTO tb_book (
     surname, 
     p_id, 
     d_id, 
-    date_register, 
     start_date,
     start_time, 
     end_date, 
@@ -42,7 +42,7 @@ INSERT INTO tb_book (
     destination, 
     title, 
     count,
-    list, 
+    people,
     ch_id, 
     c_id, 
     remark, 
@@ -51,9 +51,8 @@ INSERT INTO tb_book (
     NULL, 
     'จามร',
     'เพ็งสวย', 
-    '1', 
-    '1', 
-    current_timestamp(), 
+    1, 
+    1, 
     '2022-03-31',
     '14:07:26', 
     '2022-03-31',
@@ -65,7 +64,7 @@ INSERT INTO tb_book (
     '1.จามร เพ็งสวย'
     '1', 
     '1', 
-    'ไปส่งแล้วกลับมารับวันที่ 11 เมษายน 2565', 
+    'ไปส่งแล้วกลับมารับวันที่ 11 เมษายน 2565',
     'user1'
 );
 
