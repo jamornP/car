@@ -1,10 +1,17 @@
-
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 
 use App\Model\Position;
 use App\Model\Department;
+
+use App\Model\User;
+
+if($_REQUEST['action']=='edit'){
+    $userObj = new User;
+    $user = $userObj->getUserById($_REQUEST['id']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,42 +25,28 @@ use App\Model\Department;
     <!-- icon -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body class="font-kanit vh-100 d-flex justify-content-center align-items-center">
+<body class="font-kanit">
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/inc/components/navbar.php";?>
     <div class="container">
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                <h4>สมัครใช้งาน</h4>
+        <div class="card mt-5">
+            <div class="card-header bg-warning text-white">
+                <h4>แก้ไขข้อมูลสมาชิก</h4>
             </div>
             <div class="card-body">
-                <form action="saveRegister.php" class="" method="POST">
+                <form action="save.php" class="" method="get">
+                    <input type="hidden" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
+                    <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
                     <div class="row">
-                        <?php
-                            if($_GET['msg']) {
-                                echo "<h5 class='my-3 text-danger text-center'>Email ไม่ถูกต้อง กรุณาลองอีกครั้ง</h5>";
-                            }
-                        ?>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="name" class="form-label">ชื่อ</label>
-                                <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $book['name']; ?>">
+                                <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $user['name']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="surname"class="form-label">นามสกุล</label>
-                                <input type="text" id="surname" class="form-control" name="surname" required value="<?php echo $book['surname']; ?>">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-3">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email <b class="text-primary">สถาบัน</b></label>
-                                <input type="email" id="email" class="form-control" name="email"  required >
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-3">
-                            <div class="form-group">
-                                <label for="password"class="form-label">Password</label>
-                                <input type="password" id="password" class="form-control" name="password" required >
+                                <input type="text" id="surname" class="form-control" name="surname" required value="<?php echo $user['surname']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
@@ -65,7 +58,7 @@ use App\Model\Department;
                                         $positionObj = new Position;
                                         $positions = $positionObj->getAllPosition(); 
                                         foreach($positions as $position) {
-                                            $selected =($position['id']==$book['p_id']) ? 
+                                            $selected =($position['id']==$user['p_id']) ? 
                                             "selected" : "";
                                             echo "
                                             <option value='{$position['id']}' {$selected} >{$position['name']}</option>
@@ -84,7 +77,7 @@ use App\Model\Department;
                                         $departmentObj = new Department;
                                         $departments = $departmentObj->getAlldepartment(); 
                                         foreach($departments as $department) {
-                                            $selected =($department['id']==$book['d_id']) ? 
+                                            $selected =($department['id']==$user['d_id']) ? 
                                             "selected" : "";
                                             echo "
                                             <option value='{$department['id']}' {$selected} >{$department['name']}</option>
@@ -96,12 +89,14 @@ use App\Model\Department;
                         </div>
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="btn btn-primary mt-3">ลงทะเบียน</button>
+                        <button type="submit" class="btn btn-primary mt-3">บันทึก</button>
                     </div>
                 </form>
-                <a href="login.php">เข้าสู่ระบบ</a>
+                
             </div>
 	    </div>
     </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js'></script>
 </body>
 </html>

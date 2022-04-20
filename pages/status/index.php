@@ -35,9 +35,9 @@ use App\Model\Statusbook;
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>สถานะ</th>
                                     <th>สี</th>
+                                    <th>สถานะ</th>
+                                    <th></th>
                                     
                                 </tr>
                             </thead>
@@ -50,9 +50,9 @@ use App\Model\Statusbook;
                                         $i++;
                                         echo "
                                             <tr>
-                                                <td>{$i}</td>
+                                                <td><div style='width: 27px; height: 27px; background-color:{$status['color']}'></td>
                                                 <td>{$status['name']}</td>
-                                                <td><input type='color' class=''  value='{$status['color']}'></td>
+                                             
                                                 <td align='right'>
                                                         <a href='form.php?id={$status['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
                                                         <a href='save.php?id={$status['id']}&action=delete' class='btn btn-sm btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
@@ -62,6 +62,7 @@ use App\Model\Statusbook;
                                     }
                                 ?>
                             </tbody>
+                            <!-- <td><input type='color' class=''  value='{$status['color']}'></td> -->
                         </table>
                     </div>
                 </div>

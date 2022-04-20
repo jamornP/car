@@ -15,18 +15,18 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/car/pages/book/form.php">จองรถ</a>
+          <a class="nav-link" href="/car/pages/member/form.php">แบบฟอร์มขอใช้รถ</a>
         </li>
        
         <?php
-        if($_SESSION['login'] AND ($_SESSION['role']=='admin')){
+        if($_SESSION['role']=='admin'){
           echo "
             <li class='nav-item dropdown'>
               <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                 จัดการข้อมูลระบบ
               </a>
               <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
-                <li><a class='dropdown-item' href='/car/pages/manage/index.php'>ข้อมูลการจองรถ</a></li>
+                <li><a class='dropdown-item' href='/car/pages/book/index.php'>ข้อมูลการจองรถ</a></li>
                 <li><hr class='dropdown-divider'></li>
                 <li><a class='dropdown-item' href='/car/pages/car/index.php'>ข้อมูลรถ</a></li>
                 <li><a class='dropdown-item' href='/car/pages/status/index.php'>ข้อมูลสถานะ</a></li>
@@ -34,7 +34,7 @@
                 <li><a class='dropdown-item' href='/car/pages/department/index.php'>ข้อมูลสังกัด</a></li>
                 <li><a class='dropdown-item' href='/car/pages/choose/index.php'>ข้อมูลการรับส่ง</a></li>
                 <li><hr class='dropdown-divider'></li>
-                <li><a class='dropdown-item' href='#'>ข้อมูลสมาชิก</a></li>
+                <li><a class='dropdown-item' href='/car/pages/user'>ข้อมูลสมาชิก</a></li>
               </ul>
             </li>
           ";
@@ -45,16 +45,14 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <?php 
         if($_SESSION['login']){
-          $name=$_SESSION['name']." ".$_SESSION['surname'];
+          $name=$_SESSION['name']." ".$_SESSION['surname']." (".$_SESSION['role'].") ";
           echo "
             <li class='nav-item dropdown ml-auto '>
               <a class='nav-link dropdown-toggle active' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                 {$name}
               </a>
               <div class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdown'>
-                
-                <a class='dropdown-item' href='#'>ข้อมูลส่วนตัว</a>
-                <a class='dropdown-item' href='#'>ข้อมูลการรับส่ง</a>
+                <a class='dropdown-item' href='/car/pages/user/form.php?id={$_SESSION['id']}&action=edit'>แก้ไขข้อมูลส่วนตัว</a>
                 <hr class='dropdown-divider'>
                 <a class='dropdown-item' href='/car/pages/auth/logout.php'>ออกจากระบบ</a>
               </div>

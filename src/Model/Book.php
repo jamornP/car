@@ -39,6 +39,7 @@ class Book extends Db {
         $data = $stmt->fetchAll();
         return $data;
     }
+    
 
     public function addBook($book) {
         $sql = "
@@ -58,7 +59,8 @@ class Book extends Db {
                 people, 
                 ch_id, 
                 c_id, 
-                remark
+                remark,
+                user_add
             ) VALUES (
                 :name, 
                 :surname, 
@@ -75,7 +77,8 @@ class Book extends Db {
                 :people, 
                 :choose, 
                 :car,
-                :remark
+                :remark,
+                :user_add
             )
          ";
         $stmt = $this->pdo->prepare($sql);
@@ -134,6 +137,49 @@ class Book extends Db {
         $stmt->execute([$id]);
         $data = $stmt->fetchAll();
         return $data[0];
+    }
+    public function getBookByUser($user) {
+        $sql = "
+            SELECT 
+                b.id,
+                b.name,
+                b.surname,
+                b.date_register,
+                b.start_date,
+                b.start_time,
+                b.end_date,
+                b.end_time,
+                b.origin,
+                b.destination,
+                b.title,
+                b.count,
+                b.people,
+                b.remark,
+                b.p_id,
+                b.d_id,
+                b.ch_id,
+                b.c_id,
+                b.user_add,
+                p.name as position,
+                d.name as department,
+                ch.name as choose,
+                c.name as car,
+                s.name as status,
+                s.color as color
+            FROM 
+                tb_book AS b 
+                LEFT JOIN tb_position AS p ON b.p_id = p.id
+                LEFT JOIN tb_department AS d ON b.d_id = d.id
+                LEFT JOIN tb_choose AS ch ON b.ch_id = ch.id
+                LEFT JOIN tb_car AS c ON b.c_id = c.id
+                LEFT JOIN tb_status AS s ON b.s_id = s.id
+            WHERE
+                b.user_add = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user]);
+        $data = $stmt->fetchAll();
+        return $data;
     }
     public function updateBook($book) {
         $sql = "

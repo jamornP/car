@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS tb_book ;
 
 -- Create Table
 
-CREATE TABLE db_car.tb_book ( 
+CREATE TABLE tb_book ( 
     id INT NOT NULL AUTO_INCREMENT COMMENT 'PK' , 
     name VARCHAR(50) NOT NULL COMMENT 'ชื่อผู้จอง' , 
     surname VARCHAR(50) NOT NULL COMMENT 'นามสกุลผู้จอง' , 
@@ -65,52 +65,50 @@ INSERT INTO tb_book (
     '1', 
     '1', 
     'ไปส่งแล้วกลับมารับวันที่ 11 เมษายน 2565',
-    'user1'
+    'jamorn.pe@kmitl.ac.th'
 );
 
+INSERT INTO `tb_book` (
+    `id`, 
+    `name`, 
+    `surname`, 
+    `p_id`, 
+    `d_id`, 
+    `date_register`, 
+    `start_date`, 
+    `start_time`, 
+    `end_date`, 
+    `end_time`, 
+    `origin`, 
+    `destination`, 
+    `title`, 
+    `count`, 
+    `people`, 
+    `ch_id`, 
+    `c_id`, 
+    `remark`, 
+    `s_id`, 
+    `user_add`
+    ) VALUES (
+        NULL, 
+        'จามร', 
+        'เพ็งสวย', 
+        '3', 
+        '1', 
+        current_timestamp(), 
+        '2022-04-20', 
+        '09:00:00', 
+        '2022-04-20', 
+        '19:00:00', 
+        'คณะวิทยาศาสตร์', 
+        'เชียงใหม่', 
+        'ไปค่ายจิตอาสา', 
+        '1', 
+        '1.นายจามร เพ็งสวย', 
+        '1', 
+        '1', 
+        'ไปแล้วกลับ', 
+        '1', 
+        'jamorn.pe@kmitl.ac.th'
+    );
 
--- CREATE TABLE db_car.tb_books ( 
---     id INT NOT NULL AUTO_INCREMENT COMMENT 'PK' , 
---     title VARCHAR(255) NOT NULL COMMENT 'สถานที่ไป' , 
---     name VARCHAR(50) NOT NULL COMMENT 'ชื่อผู้จอง' , 
---     t_id INT NOT NULL COMMENT 'ประเภทรถ' , 
---     count VARCHAR(50) NOT NULL COMMENT 'จำนวนตนที่ไป' , 
---     start_date DATETIME NOT NULL COMMENT 'วันที่ไป' , 
---     end_date DATETIME NOT NULL COMMENT 'วันที่สิ้นสุด' , 
---     date_add DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'วันที่บันทึก' , 
---     user_add VARCHAR(50) NOT NULL COMMENT 'ผู้ใช้ที่บันทึก' , 
---     staff VARCHAR(50) NOT NULL COMMENT 'ชื่อคนขับรถ' , 
---     tel VARCHAR(50) NOT NULL COMMENT 'เบอร์ติดต่อคนขับรถ' , 
---     status ENUM('','reject','accept') NOT NULL COMMENT 'สถานะ' , 
---     PRIMARY KEY (id)
--- ) ENGINE = InnoDB;
-
--- INSERT Data
-
--- INSERT INTO tb_books (
---     id, 
---     title, 
---     name, 
---     t_id, 
---     count, 
---     start_date, 
---     end_date, 
---     date_add, 
---     user_add, 
---     staff, 
---     tel, 
---     status
--- ) VALUES (
---     NULL, 
---     'ไป Maga Bangna', 
---     'จามร เพ็งสวย', 
---     '1', 
---     '4', 
---     '2022-03-29 12:31:08.000000', 
---     '2022-03-29 16:31:08.000000', 
---     current_timestamp(), 
---     'User1', 
---     'นายไก่', 
---     '0857332844', 
---     ''
--- );

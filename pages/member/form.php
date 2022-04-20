@@ -35,11 +35,12 @@ if($_REQUEST['action']=='edit'){
 
     </div>
     <div class="container">
+        <?php //print_r($_SESSION);?>
         <div class="row mt-5">
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>แบบฟอร์ม<?php echo ($_REQUEST['action']=='edit') ? " แก้ไขข้อมูลจองรถ" : " เพิ่มข้อมูลจองรถ";?></h5>
+                        <h5>แบบฟอร์ม<?php echo ($_REQUEST['action']=='edit') ? " แก้ไขข้อมูลขอใช้รถ" : " เพิ่มข้อมูลขอใช้รถ";?></h5>
                         
                     </div>
                         <div class="card-body">
@@ -55,19 +56,19 @@ if($_REQUEST['action']=='edit'){
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
                                             <label for="name" class="form-label">ชื่อ</label>
-                                            <input type="text" id="name" class="form-control" name="name"  required value="<?php echo $_SESSION['name']; ?>" readonly>
+                                            <input type="text" id="name" class="form-control" name="name" required value="<?php echo $_SESSION['name']; ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
                                             <label for="surname"class="form-label">นามสกุล</label>
-                                            <input type="text" id="surname" class="form-control" name="surname" required value="<?php echo $_SESSION['surname']; ?>" readonly>
+                                            <input type="text" id="surname" class="form-control" name="surname" required value="<?php echo $_SESSION['surname']; ?>"readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
                                             <label for="position"class="form-label">ตำแหน่ง</label>
-                                            <select class="form-select" aria-label="Default select example" id="position" name="position" required readonly>
+                                            <select class="form-select" aria-label="Default select example" id="position" name="position" required>
                                                 <option  value="">เลือก</option>
                                                 <?php
                                                     $positionObj = new Position;
@@ -86,7 +87,7 @@ if($_REQUEST['action']=='edit'){
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
                                             <label for="department"class="form-label">สังกัด</label>
-                                            <select class="form-select" aria-label="Default select example" id="department" name="department" required readonly>
+                                            <select class="form-select" aria-label="Default select example" id="department" name="department" required>
                                                 <option value="">เลือก</option>
                                                 <?php
                                                     $departmentObj = new Department;
@@ -142,7 +143,7 @@ if($_REQUEST['action']=='edit'){
                                 <div class="row">
                                     <div class="col-6 col-sm-6 col-md-6 col-lg">
                                         <div class="form-group">
-                                            <label for="datepicker"class="form-label" >วันที่</label>
+                                            <label for="datepicker"class="form-label">วันที่</label>
                                             <input type="text" id="datepicker" class="form-control" name="start_date" required autocomplete="off" value="<?php echo $book['start_date']; ?>">
                                         </div>
                                     </div>
@@ -191,7 +192,7 @@ if($_REQUEST['action']=='edit'){
                                         </div>
                                     </div>
                                 </div>
-                                
+                               
                                 <p class="mt-3"><b>ความประสงของผู้ใช้รถ</b></p>
                                 <hr>
                                 <div class="row">

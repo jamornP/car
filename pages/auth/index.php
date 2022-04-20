@@ -1,0 +1,1 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>

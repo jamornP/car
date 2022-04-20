@@ -30,7 +30,9 @@
 					<label for="password">Password</label>
 					<input type="password" name="password" id="password" class="form-control" required>
 				</div>
-				<button type="submit" class="btn btn-primary mt-2">Login</button>
+                <div class="text-end">
+				    <button type="submit" class="btn btn-primary mt-2">Login</button>
+                </div>
 			</form>
 			<a href="register.php">สมัครใช้งานใหม่</a>
 		</div>

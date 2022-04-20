@@ -55,7 +55,7 @@ use App\Model\Timebook;
                                 <tbody>
                                     <?php
                                         $bookObj = new Book;
-                                        $books = $bookObj->getAllbook(); 
+                                        $books = $bookObj->getBookByUser($_SESSION['email']); 
                                         $i=0;
                                         foreach($books as $book) {
                                             $i++;

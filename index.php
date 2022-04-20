@@ -23,6 +23,7 @@
 
 <div class="">
 <?php 
+session_start();
     require $_SERVER['DOCUMENT_ROOT']."/car/inc/components/navbar.php";
 
 ?>
@@ -33,7 +34,9 @@
                 <div class="card ">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
                     <h3>ปฏิทินการใช้รถ</h3>
-                        <a href="./pages/book/form.php" class="btn btn-success text-white">แบบฟอร์มขอใช้รถ</a>
+                        <!-- <a href="./pages/book/form.php" class="btn btn-success text-white">แบบฟอร์มขอใช้รถ</a> -->
+                        <?php //echo password_hash('admincar',PASSWORD_DEFAULT);?>
+
                     </div>
                     <div class="card-body">
                         <div class="col-lg-12">

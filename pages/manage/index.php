@@ -78,9 +78,11 @@ use App\Model\Timebook;
                                                     </td>
                                                   
                                                     <td>
-                                                        <div class='d-grid'>
-                                                            <a href='' class=' btn btn-sm btn-success text-white' >ดำเนินการ</a>
+                                                        <div class='d-flex'>
+                                                            <a href='' class=' btn btn-sm btn-primary text-white me-mr-2' >ดำเนินการ</a>
+                                                            <a href='' class='btn btn-sm btn-danger text-white' >ลบ</a>
                                                         </div>
+                                                       
                                                     </td>
                                                 </tr>
                                             ";

@@ -28,10 +28,10 @@ use App\Model\Timebook;
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>ข้อมูลจองรถ</h5>
+                        <h5>ข้อมูลจองรถทั้งหมด</h5>
                         <div>
                         <a href="/car/" class="btn btn-success text-white">ดูปฏิทิน</a>
-                        <a href="form.php" class="btn btn-warning text-white">เพิ่มข้อมูล</a>
+                        <!-- <a href="form.php" class="btn btn-warning text-white">เพิ่มข้อมูล</a> -->
                         </div>
                         
                     </div>
@@ -55,7 +55,7 @@ use App\Model\Timebook;
                                 <tbody>
                                     <?php
                                         $bookObj = new Book;
-                                        $books = $bookObj->getAllbook(); 
+                                        $books = $bookObj->getAllBook(); 
                                         $i=0;
                                         foreach($books as $book) {
                                             $i++;
