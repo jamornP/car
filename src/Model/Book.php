@@ -39,6 +39,42 @@ class Book extends Db {
         $data = $stmt->fetchAll();
         return $data;
     }
+    public function getShowBook() {
+        $sql = "
+            SELECT 
+                b.id,
+                b.name,
+                b.surname,
+                b.date_register,
+                b.start_date,
+                b.start_time,
+                b.end_date,
+                b.end_time,
+                b.origin,
+                b.destination,
+                b.title,
+                b.count,
+                b.remark,
+                p.name AS position,
+                d.name AS department,
+                ch.name AS choose,
+                c.name AS car,
+                s.name as status,
+                s.color as color
+            FROM 
+                `tb_book` AS b 
+                LEFT JOIN tb_position AS p ON b.p_id = p.id
+                LEFT JOIN tb_department AS d ON b.d_id = d.id
+                LEFT JOIN tb_choose AS ch ON b.ch_id = ch.id
+                LEFT JOIN tb_car AS c ON b.c_id = c.id
+                LEFT JOIN tb_status AS s ON b.s_id = s.id
+            WHERE
+                b.s_id = 3
+        ";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
     
 
     public function addBook($book) {

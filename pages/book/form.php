@@ -109,7 +109,7 @@ if($_REQUEST['action']=='edit'){
                                     <div class="col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-group">
                                             <label for="origin"class="form-label">จุดขึ้นรถ</label>
-                                            <input type="text" class="form-control" id="origin" name="origin" required value="" autofocus>
+                                            <input type="text" class="form-control" id="origin" name="origin" required value="<?php echo $book['origin']; ?>" autofocus>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-6">

@@ -36,19 +36,17 @@ use App\Model\Timebook;
                         
                     </div>
                         <div class="card-body">
-                            <table class="table">
+                            <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                       
-                                        <th>ชื่อ-สกุล</th>
                                         <th>วันที่ใช้รถ</th>
                                         <th>เวลา</th>
                                         <th>ปลายทาง</th>
                                         <th>เพื่อ</th>
                                         <th>รถ</th>
+                                        <th>ผู้ขอ</th>
                                         <th>สถานะ</th>
-                                       
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -64,21 +62,21 @@ use App\Model\Timebook;
                                             echo "
                                                 <tr>
                                                     <td>{$i}</td>
-                                                   
-                                                    <td>{$name}</td>
                                                     <td>{$ds}</td>
                                                     <td>{$book['start_time']}</td>
                                                     <td>{$book['destination']}</td>
                                                     <td>{$book['title']}</td>
                                                     <td>{$book['car']}</td>
+                                                    <td>{$name}</td>
                                                     <td>
                                                         <div class='d-grid'>
-                                                            <a href='' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a>
+                                                            <a href='/car/pages/manage/form.php?id={$book['id']}&action=edit' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a>
                                                         </div>
                                                     </td>
                                                     <td align='right'>
-                                                        <a href='form.php?id={$book['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'>แก้ไข</a>
-                                                        <a href='save.php?id={$book['id']}&action=delete' class='me-md-2 btn btn-sm btn-danger text-white'>ลบ</a>
+                                                        
+                                                        <a href='form.php?id={$book['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
+                                                        <a href='save.php?id={$book['id']}&action=delete' class='me-md-2 btn btn-sm btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
                                                     </td>
                                                 </tr>
                                             ";

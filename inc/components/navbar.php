@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary align-items-center">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary align-items-center">
   <div class="container-fluid align-items-center">
   
     <a class="navbar-brand " href="#">

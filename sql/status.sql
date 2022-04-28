@@ -12,5 +12,5 @@ INSERT INTO `tb_status` (
 ) VALUES (
     NULL, 
     'แจ้ง', 
-    '#9a36dd'
+    '#cc770b'
 );

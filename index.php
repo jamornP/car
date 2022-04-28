@@ -1,3 +1,8 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php"; ?>
+
+<?php 
+    use App\Model\Statusbook;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +33,7 @@ session_start();
 
 ?>
 </div>
-    <div class="container mt-5">
+    <div class="container mt-2">
         <div class="row">
             <div class="col">
                 <div class="card ">
@@ -38,11 +43,34 @@ session_start();
                         <?php //echo password_hash('admincar',PASSWORD_DEFAULT);?>
 
                     </div>
-                    <div class="card-body">
-                        <div class="col-lg-12">
-                            <div style="margin:50px 0 50px 0;" id='calendar'></div>
-                            <div style="margin:10px 0 50px 0;" align="center"></div>
+                    <div class="card-body fs-14">
+                        <div class="alert alert-success" role="alert">
+                            <table class="">
+                                <tr>
+                                    <td>หมายเหตุ : สถานะรายการขอใช้รถ</td>
+                                    <?php
+                                        $statusObj = new Statusbook;
+                                        $statuss = $statusObj->getAllStatus(); 
+                                        $i=0;
+                                        foreach($statuss as $status) {
+                                            $i++;
+                                            echo "
+                                                <td><div style='width: 14px; height: 14px; background-color:{$status['color']}'></td>
+                                                <td>{$status['name']}&nbsp;&nbsp;&nbsp;</td>
+                                            ";
+                                        }
+                                    ?>
+                                </tr>
+                            </table>  
+                        </div>
+                     
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div style="margin:50px 0 50px 0;" id='calendar'></div>
+                                <div style="margin:10px 0 50px 0;" align="center"></div>
 
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
