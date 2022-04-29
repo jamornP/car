@@ -153,12 +153,16 @@ class Book extends Db {
                 b.d_id,
                 b.ch_id,
                 b.c_id,
+                b.s_id,
                 p.name as position,
                 d.name as department,
                 ch.name as choose,
                 c.name as car,
                 s.name as status,
-                s.color as color
+                s.color as color,
+                bs.number as number,
+                bs.sname as staff,
+                bs.tel as staff_tel
             FROM 
                 tb_book AS b 
                 LEFT JOIN tb_position AS p ON b.p_id = p.id
@@ -166,8 +170,13 @@ class Book extends Db {
                 LEFT JOIN tb_choose AS ch ON b.ch_id = ch.id
                 LEFT JOIN tb_car AS c ON b.c_id = c.id
                 LEFT JOIN tb_status AS s ON b.s_id = s.id
+                LEFT JOIN tb_bs AS bs ON b.id = bs.b_id
+
             WHERE
                 b.id = ?
+            ORDER BY 
+                bs.id
+            DESC
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
@@ -237,6 +246,16 @@ class Book extends Db {
                 c_id = :car, 
                 remark= :remark
             WHERE id = :id
+         ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($book);
+        return true;
+    }
+    public function updateBookStatus($book) {
+        $sql = "
+            UPDATE tb_book SET
+                s_id = :status 
+            WHERE id = :b_id
          ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($book);

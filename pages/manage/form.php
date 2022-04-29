@@ -8,10 +8,15 @@ use App\Model\Department;
 use App\Model\Choose;
 use App\Model\Car;
 use App\Model\Timebook;
+use App\Model\Statusbook;
+use App\Model\Bs;
 
 if($_REQUEST['action']=='edit'){
     $bookObj = new Book;
     $book = $bookObj->getBookById($_REQUEST['id']);
+    $bsObj = new Bs;
+    $bs = $bsObj->getBsById($_REQUEST['id']);
+
 }
 
 
@@ -37,9 +42,59 @@ if($_REQUEST['action']=='edit'){
     <div class="container">
         <div class="row mt-5">
             <div class="col">
-                <div class="card mb-3">
-                    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                        <h5>แบบฟอร์ม<?php echo ($_REQUEST['action']=='edit') ? " แก้ไขข้อมูลจองรถ" : " เพิ่มข้อมูลจองรถ";?></h5>
+                <div class="card mb-3 shadow">
+                    <div class="card-header bg-info text-white">
+                        <form action="save.php" method="get">  
+                            <input type="hidden" name="b_id" value="<?php echo $book['id']; ?>"> 
+                            <h5 class="mt-3"><b>ส่วนของ admin </b></h5>
+                            <hr>
+                            
+                                <div class="row" >
+                                    <div class="col-sm-12 col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="number" class="form-label">ทะเบียนรถ</label>
+                                            <input type="text" id="number" class="form-control" name="number" autofocus value="<?php echo $bs['number']; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="name" class="form-label">ชื่อ-สกุล พขร.</label>
+                                            <input type="text" id="name" class="form-control" name="sname" value="<?php echo $bs['sname']; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="tel"class="form-label">เบอร์โทร</label>
+                                            <input type="text" id="tel" class="form-control" name="tel" value="<?php echo $bs['tel']; ?>">
+                                        </div>
+                                    </div>      
+                                    <div class="col-sm-12 col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="status"class="form-label">สถานะใบขอใช้รถ</label>
+                                            <select class="form-select" aria-label="Default select example" id="status" name="status" required readonly>
+                                                <option  value="">เลือก</option>
+                                                <?php
+                                                    $statusbookObj = new Statusbook;
+                                                    $statusbooks = $statusbookObj->getAllStatus(); 
+                                                    foreach($statusbooks as $statusbook) {
+                                                        $selected =($statusbook['id']==$book['s_id']) ? 
+                                                        "selected" : "";
+                                                        echo "
+                                                        <option value='{$statusbook['id']}' {$selected} >{$statusbook['name']}</option>
+                                                        ";
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            <hr>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
+                                <button class="btn btn-success text-white" type="submit">บันทึก</button>
+                                <a href="/car/pages/book" class="btn btn-warning text-white">ย้อนกลับ</a>
+                            </div>
+                        </form>
                         
                     </div>
                         <div class="card-body">
@@ -245,34 +300,10 @@ if($_REQUEST['action']=='edit'){
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="card-footer">
                             
-                                <form action="save.php" method="get">  
-                                    <input type="text" name="id" value="<?php echo $book['id']; ?>"> 
-                                    <h5 class="mt-3"><b>ส่วนของ admin </b></h5>
-                                    <hr>
-                                    <div style="background-color: #ffbe7d;">
-                                        <div class="row" >
-                                            <div class="col-sm-12 col-md-6 col-lg-3">
-                                                <div class="form-group">
-                                                    <label for="name" class="form-label">ชื่อ</label>
-                                                    <input type="text" id="name" class="form-control" name="name"  required value="<?php echo $_SESSION['name']; ?>" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-3">
-                                                <div class="form-group">
-                                                    <label for="surname"class="form-label">นามสกุล</label>
-                                                    <input type="text" id="surname" class="form-control" name="surname" required value="<?php echo $_SESSION['surname']; ?>" readonly>
-                                                </div>
-                                            </div>                                   
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
-                                        <button class="btn btn-success text-white" type="submit">บันทึก</button>
-                                        <a href="/car/" class="btn btn-warning text-white">ย้อนกลับ</a>
-                                    </div>
-                                </form>
+                               
                             </div>
                         </div>
                     </div>
