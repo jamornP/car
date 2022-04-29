@@ -6,6 +6,7 @@ CREATE TABLE tb_users (
     surname VARCHAR(50) NOT NULL COMMENT 'นามสกุล' ,
     email VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    tel VARCHAR(50) NOT NULL COMMENT 'เบอร์โทร',
     role VARCHAR(50) DEFAULT 'member',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME,
@@ -19,6 +20,7 @@ INSERT INTO tb_users (
     surname,
     email,
     password,
+    tel,
     role,
     p_id,
     d_id
@@ -27,6 +29,7 @@ INSERT INTO tb_users (
     'เพ็งสวย',
     'jamorn.pe@kmitl.ac.th',
     '$2y$10$a51xCXB4bNaaTVvZt3gUVuPI1KVko6zkb.GLlYt60TrXHBUFKQHrW',
+    '0868082435',
     'admin',
     '3',
     '1'

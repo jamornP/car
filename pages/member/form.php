@@ -196,6 +196,54 @@ if($_REQUEST['action']=='edit'){
                                 <p class="mt-3"><b>ความประสงของผู้ใช้รถ</b></p>
                                 <hr>
                                 <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-lg-2">
+                                        <div class="form-group">
+                                            <label for="count"class="form-label">สถานที่ไป</label>
+                                            <div class='form-check'>
+                                                <input class='form-check-input' type='radio' name='provin' id='pro1' value='Yes' >
+                                                <label class='form-check-label' for='pro1'>ในเขต กทม.</label>
+                                            </div>
+                                            <div class='form-check'>
+                                                <input class='form-check-input' type='radio' name='provin' id='pro2' value='No'checked>
+                                                <label class='form-check-label' for='pro2'>นอกเขต กทม.</label>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-2">
+                                        <div class="form-group">
+                                            <label for="count"class="form-label">ขอใช้ทางด่วน</label>
+                                            <div class='form-check'>
+                                                <input class='form-check-input' type='radio' name='esypass' id='tang1' value='Yes' >
+                                                <label class='form-check-label' for='tang1'>ผ่าน</label>
+                                            </div>
+                                            <div class='form-check'>
+                                                <input class='form-check-input' type='radio' name='esypass' id='tang2' value='No'checked>
+                                                <label class='form-check-label' for='tang2'>ไม่ผ่าน</label>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-12 col-md-6 col-lg-2">
+                                    <div class="form-group">
+                                            <label for="car"class="form-label">ประเถทรถ</label>
+                                            <select class="form-select" aria-label="Default select example" id="car" name="car" required>
+                                                <option value="">เลือก</option>
+                                                <?php
+                                                    $carObj = new Car;
+                                                    $cars = $carObj->getAllcar(); 
+                                                    foreach($cars as $car) {
+                                                        $selected =($car['id']==$book['c_id']) ? 
+                                                        "selected" : "";
+                                                        echo "
+                                                        <option value='{$car['id']}' {$selected} >{$car['name']}</option>
+                                                        ";
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
                                             <label for="count"class="form-label">เลือกการรับส่ง</label>
@@ -218,26 +266,6 @@ if($_REQUEST['action']=='edit'){
                                                     }
                                                     
                                                 ?>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-sm-12 col-md-6 col-lg-3">
-                                    <div class="form-group">
-                                            <label for="car"class="form-label">ประเถทรถ</label>
-                                            <select class="form-select" aria-label="Default select example" id="car" name="car" required>
-                                                <option value="">เลือก</option>
-                                                <?php
-                                                    $carObj = new Car;
-                                                    $cars = $carObj->getAllcar(); 
-                                                    foreach($cars as $car) {
-                                                        $selected =($car['id']==$book['c_id']) ? 
-                                                        "selected" : "";
-                                                        echo "
-                                                        <option value='{$car['id']}' {$selected} >{$car['name']}</option>
-                                                        ";
-                                                    }
-                                                ?>
-                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg">

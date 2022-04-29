@@ -13,14 +13,16 @@ use App\Database\Db;
                 email,
                 password,
                 p_id,
-                d_id
+                d_id,
+                tel
             ) VALUES (
                 :name,
                 :surname,
                 :email,
                 :password,
                 :position,
-                :department
+                :department,
+                :tel
             )
          ";
          $stmt = $this->pdo->prepare($sql);
@@ -32,8 +34,8 @@ use App\Database\Db;
          $_SESSION['name'] = $user['name'];
          $_SESSION['surname'] = $user['surname'];
          $_SESSION['email'] = $user['email'];
-         $_SESSION['position'] = $user['position'];
-         $_SESSION['department'] = $user['department'];
+         $_SESSION['position'] = $user['p_id'];
+         $_SESSION['department'] = $user['d_id'];
          $_SESSION['role'] = 'member';
          $_SESSION['login'] = true;
 

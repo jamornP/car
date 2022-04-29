@@ -70,6 +70,12 @@ if($_REQUEST['action']=='edit'){
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group">
+                                <label for="tel"class="form-label">เบอร์โทร</label>
+                                <input type="text" id="tel" class="form-control" name="tel" required value="<?php echo $user['tel']; ?>">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-3">
+                            <div class="form-group">
                                 <label for="department"class="form-label">สังกัด</label>
                                 <select class="form-select" aria-label="Default select example" id="department" name="department" required>
                                     <option value="">เลือก</option>

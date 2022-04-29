@@ -31,7 +31,7 @@ use App\Model\Timebook;
                         <h5>ข้อมูลจองรถ</h5>
                         <div>
                         <a href="/car/" class="btn btn-success text-white">ดูปฏิทิน</a>
-                        <a href="form.php" class="btn btn-warning text-white">เพิ่มข้อมูล</a>
+                        <!-- <a href="form.php" class="btn btn-warning text-white">เพิ่มข้อมูล</a> -->
                         </div>
                         
                     </div>

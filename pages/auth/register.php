@@ -35,13 +35,13 @@ use App\Model\Department;
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="name" class="form-label">ชื่อ</label>
-                                <input type="text" id="name" class="form-control" name="name" autofocus required value="<?php echo $book['name']; ?>">
+                                <input type="text" id="name" class="form-control" name="name" autofocus required >
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="surname"class="form-label">นามสกุล</label>
-                                <input type="text" id="surname" class="form-control" name="surname" required value="<?php echo $book['surname']; ?>">
+                                <input type="text" id="surname" class="form-control" name="surname" required >
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
@@ -92,6 +92,12 @@ use App\Model\Department;
                                         }
                                     ?>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-3">
+                            <div class="form-group">
+                                <label for="tel"class="form-label">เบอร์โทร</label>
+                                <input type="text" id="tel" class="form-control" name="tel" required >
                             </div>
                         </div>
                     </div>
