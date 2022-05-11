@@ -110,6 +110,7 @@ use App\Database\Db;
                u.p_id,
                u.d_id,
                u.role,
+               u.tel,
                u.created_at,
                u.updated_at,
                p.name AS position,
@@ -132,6 +133,7 @@ use App\Database\Db;
             UPDATE tb_users SET
                 name = :name,
                 surname = :surname,
+                tel = :tel,
                 p_id = :position,
                 d_id = :department
             WHERE id = :id
