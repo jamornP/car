@@ -17,6 +17,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/car/pages/member/form.php">แบบฟอร์มขอใช้รถ</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/car/pages/member/index.php">ข้อมูลขอใช้รถทั้งหมด</a>
+        </li>
        
         <?php
         if($_SESSION['role']=='admin'){

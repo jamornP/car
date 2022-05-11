@@ -10,7 +10,9 @@ if ($_REQUEST['action']=='edit'){
     $user = $_REQUEST;
     unset($user['action']);
     print_r($user);
-    $userObj->updateUser($user);
+    $userObj->updateUser($user,date("Y-m-d H:i:sa"));
+}elseif ($_REQUEST['action']=='delete'){
+    $userObj->deleteUser($_REQUEST['id']);
 }
- header('Location: /car/index.php');
+ header('Location: /car/pages/user/index.php');
 ?>

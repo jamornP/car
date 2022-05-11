@@ -96,7 +96,9 @@ class Book extends Db {
                 ch_id, 
                 c_id, 
                 remark,
-                user_add
+                user_add,
+                provin,
+                esypass
             ) VALUES (
                 :name, 
                 :surname, 
@@ -114,7 +116,9 @@ class Book extends Db {
                 :choose, 
                 :car,
                 :remark,
-                :user_add
+                :user_add,
+                :provin,
+                :esypass
             )
          ";
         $stmt = $this->pdo->prepare($sql);
@@ -154,6 +158,8 @@ class Book extends Db {
                 b.ch_id,
                 b.c_id,
                 b.s_id,
+                b.provin,
+                b.esypass,
                 p.name as position,
                 d.name as department,
                 ch.name as choose,
@@ -205,6 +211,8 @@ class Book extends Db {
                 b.ch_id,
                 b.c_id,
                 b.user_add,
+                b.provin,
+                b.esypass,
                 p.name as position,
                 d.name as department,
                 ch.name as choose,
@@ -244,7 +252,9 @@ class Book extends Db {
                 people = :people, 
                 ch_id = :choose, 
                 c_id = :car, 
-                remark= :remark
+                remark = :remark,
+                provin = :provin,
+                esypass = :esypass
             WHERE id = :id
          ";
         $stmt = $this->pdo->prepare($sql);

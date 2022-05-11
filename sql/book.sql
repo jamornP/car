@@ -24,6 +24,8 @@ CREATE TABLE tb_book (
     remark TEXT NOT NULL COMMENT 'รายละเอียดการรับส่ง' , 
     s_id INT NOT NULL DEFAULT '1' COMMENT 'ID สถานะใบขอ' , 
     user_add VARCHAR(50) NULL COMMENT 'USER ผู้กรอกข้อมูล' , 
+    provin VARCHAR(20) NOT NULL COMMENT 'ต่างจังหวัดหรือไม่',
+    esypass VARCHAR(20) NOT NULL COMMENT 'ใช้ทางด่วนหรือไม่',
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
@@ -46,7 +48,9 @@ INSERT INTO tb_book (
     ch_id, 
     c_id, 
     remark, 
-    user_add
+    user_add,
+    provin,
+    esypass
 ) VALUES (
     NULL, 
     'จามร',
@@ -65,7 +69,9 @@ INSERT INTO tb_book (
     '1', 
     '1', 
     'ไปส่งแล้วกลับมารับวันที่ 11 เมษายน 2565',
-    'jamorn.pe@kmitl.ac.th'
+    'jamorn.pe@kmitl.ac.th',
+    'YES',
+    'YES'
 );
 
 INSERT INTO `tb_book` (
@@ -88,7 +94,9 @@ INSERT INTO `tb_book` (
     `c_id`, 
     `remark`, 
     `s_id`, 
-    `user_add`
+    `user_add`,
+    `provin`,
+    `esypass`
     ) VALUES (
         NULL, 
         'จามร', 
@@ -109,6 +117,8 @@ INSERT INTO `tb_book` (
         '1', 
         'ไปแล้วกลับ', 
         '1', 
-        'jamorn.pe@kmitl.ac.th'
+        'jamorn.pe@kmitl.ac.th',
+        'YES',
+        'YES'
     );
 

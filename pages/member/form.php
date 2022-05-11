@@ -110,7 +110,7 @@ if($_REQUEST['action']=='edit'){
                                     <div class="col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-group">
                                             <label for="origin"class="form-label">จุดขึ้นรถ</label>
-                                            <input type="text" class="form-control" id="origin" name="origin" required value="" autofocus>
+                                            <input type="text" class="form-control" id="origin" name="origin" required value="<?php echo $book['origin']; ?>" autofocus>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-6">
@@ -196,29 +196,43 @@ if($_REQUEST['action']=='edit'){
                                 <p class="mt-3"><b>ความประสงของผู้ใช้รถ</b></p>
                                 <hr>
                                 <div class="row">
+                                    <?php
+                                        if($book['provin']=='Yes'){
+                                            $pro1 ='checked';
+                                        }else{
+                                            $pro2 ='checked';
+                                        }
+                                    ?>
                                     <div class="col-sm-12 col-md-6 col-lg-2">
                                         <div class="form-group">
                                             <label for="count"class="form-label">สถานที่ไป</label>
                                             <div class='form-check'>
-                                                <input class='form-check-input' type='radio' name='provin' id='pro1' value='Yes' >
+                                                <input class='form-check-input' type='radio' name='provin' id='pro1' value='Yes' <?php echo $pro1; ?>>
                                                 <label class='form-check-label' for='pro1'>ในเขต กทม.</label>
                                             </div>
                                             <div class='form-check'>
-                                                <input class='form-check-input' type='radio' name='provin' id='pro2' value='No'checked>
+                                                <input class='form-check-input' type='radio' name='provin' id='pro2' value='No' <?php echo $pro2; ?>>
                                                 <label class='form-check-label' for='pro2'>นอกเขต กทม.</label>
                                                 
                                             </div>
                                         </div>
                                     </div>
+                                    <?php
+                                        if($book['esypass']=='Yes'){
+                                            $tang1 ='checked';
+                                        }else{
+                                            $tang2 ='checked';
+                                        }
+                                    ?>
                                     <div class="col-sm-12 col-md-6 col-lg-2">
                                         <div class="form-group">
                                             <label for="count"class="form-label">ขอใช้ทางด่วน</label>
                                             <div class='form-check'>
-                                                <input class='form-check-input' type='radio' name='esypass' id='tang1' value='Yes' >
+                                                <input class='form-check-input' type='radio' name='esypass' id='tang1' value='Yes' <?php echo $tang1; ?>>
                                                 <label class='form-check-label' for='tang1'>ผ่าน</label>
                                             </div>
                                             <div class='form-check'>
-                                                <input class='form-check-input' type='radio' name='esypass' id='tang2' value='No'checked>
+                                                <input class='form-check-input' type='radio' name='esypass' id='tang2' value='No'<?php echo $tang2; ?>>
                                                 <label class='form-check-label' for='tang2'>ไม่ผ่าน</label>
                                                 
                                             </div>

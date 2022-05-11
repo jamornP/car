@@ -23,11 +23,14 @@ elseif ($_REQUEST['action']=='add'){
     $book['user_add']=$_SESSION['email'];
     $id = $bookObj->addBook($book);
     $bs['b_id'] = $id;
+    $bs['number'] = "";
     $bs['sname'] = "";
+    
+    $bs['tel'] = "";
     $bs['s_id'] = 1;
     $bs['user_add'] = $_SESSION['email'];
-    // echo "<br>";
-    // print_r($bs);
+    echo "<br>";
+    print_r($bs);
     $bsObj->addBs($bs);
 }
 

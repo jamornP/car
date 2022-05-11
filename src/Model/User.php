@@ -128,18 +128,28 @@ use App\Database\Db;
        return $data[0];
     }
 
-    public function updateUser($user) {
+    public function updateUser($user,$date) {
         $sql = "
             UPDATE tb_users SET
                 name = :name,
                 surname = :surname,
                 tel = :tel,
                 p_id = :position,
-                d_id = :department
+                d_id = :department,
+                updated_at = '".$date."'
             WHERE id = :id
          ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($user);
+        return true;
+    }
+
+    public function deleteUser($id) {
+        $sql = "
+            DELETE FROM tb_users WHERE id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
         return true;
     }
  }

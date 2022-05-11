@@ -8,6 +8,7 @@ $bookObj = new Book;
 $bsObj = new Bs;
 print_r($_REQUEST);
 echo $_REQUEST['action'];
+echo="<br>";
 if ($_REQUEST['action']=='delete'){
     $bookObj->deleteBook($_REQUEST['id']);
 }
@@ -21,13 +22,15 @@ elseif ($_REQUEST['action']=='add'){
     unset($book['action']);
     unset($book['id']);
     $id=$bookObj->addBook($book);
+    // echo $id;
     $bs['b_id'] = $id;
     $bs['sname'] = "";
     $bs['s_id'] = 1;
     $bs['user_add'] = $_SESSION['email'];
+    // print_r($bs);
     $bsObj->addBs($bs);
 }
 
-header('Location: index.php');
+ header('Location: index.php');
 
 ?>

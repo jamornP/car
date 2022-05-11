@@ -33,7 +33,7 @@ class Bs extends Db {
                 :number,
                 :sname,
                 :tel,
-                :status,
+                :s_id,
                 :user_add
             )
         ";
