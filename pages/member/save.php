@@ -28,6 +28,7 @@ if ($_REQUEST['action']=='delete'){
         $book['s_id']=5;
         $book['user_add']=$_SESSION['email'];
         $id = $bookObj->addBook($book);
+        $data = $lineObj->SentLineSci();
         echo "<pre>";
         print_r($book);
         echo"</pre>";
