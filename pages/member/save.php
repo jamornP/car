@@ -21,13 +21,13 @@ if ($_REQUEST['action']=='delete'){
     $bookObj->updateBook($book);
     $data = $lineObj->SentLine();
 }elseif ($_REQUEST['action']=='add'){
-    if($_REQUEST['car']='1'){
+    if($_REQUEST['car']==1){
         $book = $_REQUEST;
         unset($book['action']);
         unset($book['id']);
         $book['s_id']=5;
         $book['user_add']=$_SESSION['email'];
-         $id = $bookObj->addBook($book);
+        $id = $bookObj->addBook($book);
         echo "<pre>";
         print_r($book);
         echo"</pre>";
@@ -51,6 +51,6 @@ if ($_REQUEST['action']=='delete'){
     }
 }
 
-        header('Location: index.php');
+       header('Location: index.php');
 
 ?>
