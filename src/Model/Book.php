@@ -21,6 +21,7 @@ class Book extends Db {
                 b.title,
                 b.count,
                 b.remark,
+                b.c_id,
                 p.name AS position,
                 d.name AS department,
                 ch.name AS choose,
@@ -34,6 +35,8 @@ class Book extends Db {
                 LEFT JOIN tb_choose AS ch ON b.ch_id = ch.id
                 LEFT JOIN tb_car AS c ON b.c_id = c.id
                 LEFT JOIN tb_status AS s ON b.s_id = s.id
+            ORDER BY
+                b.date_register DESC
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();

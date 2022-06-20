@@ -45,7 +45,7 @@ session_start();
                         <div class="alert alert-success" role="alert">
                             <table class="">
                                 <tr>
-                                    <td>หมายเหตุ : สถานะรายการขอใช้รถ</td>
+                                    <td>หมายเหตุ : สถานะรายการขอใช้รถ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                     <?php
                                         $statusObj = new Statusbook;
                                         $statuss = $statusObj->getAllStatus(); 
@@ -53,13 +53,15 @@ session_start();
                                         foreach($statuss as $status) {
                                             $i++;
                                             echo "
-                                                <td><div style='width: 14px; height: 14px; background-color:{$status['color']}'></td>
+                                                <td><div style='width: 14px; height: 14px; background-color:{$status['color']}'></div></td>
                                                 <td>{$status['name']}&nbsp;&nbsp;&nbsp;</td>
                                             ";
                                         }
                                     ?>
+                                    <td><div style='width: 14px; height: 14px; background-color:#3020BE' class=""></div></td>
+                                    <td>รถตู้คณะฯ&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
-                            </table>  
+                            </table>
                         </div>
                      
                         <div class="row">

@@ -11,6 +11,7 @@ $lineObj = new Line;
 $_REQUEST['user_add'] = $_SESSION['email'];
 // print_r($_REQUEST);
 $bsObj->addBs($_REQUEST);
+$lineObj->SentLine();
 
 
 $book = $_REQUEST;

@@ -34,7 +34,7 @@ class Line extends Db {
 
     }
     public function SentLine() {
-        $dataCount=CountStatus1();
+        $dataCount = $this->CountStatus1();
         $data="\nขอใช้รถ/ขออนุมัติสถาบัน =: ".$dataCount[0]."/".$dataCount[1]."\nขอใช้รถ/อนุมัติ:ไม่อนุมัติ =: ".$dataCount[0]."/".$dataCount[2].":".$dataCount[3]."\nLink : http://161.246.23.21/car/" ;
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
