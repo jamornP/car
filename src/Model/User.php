@@ -34,8 +34,8 @@ use App\Database\Db;
          $_SESSION['name'] = $user['name'];
          $_SESSION['surname'] = $user['surname'];
          $_SESSION['email'] = $user['email'];
-         $_SESSION['position'] = $user['p_id'];
-         $_SESSION['department'] = $user['d_id'];
+         $_SESSION['p_id'] = $user['p_id'];
+         $_SESSION['d_id'] = $user['d_id'];
          $_SESSION['role'] = 'member';
          $_SESSION['login'] = true;
 
@@ -136,6 +136,22 @@ use App\Database\Db;
                 tel = :tel,
                 p_id = :position,
                 d_id = :department,
+                updated_at = '".$date."'
+            WHERE id = :id
+         ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($user);
+        return true;
+    }
+    public function updateUserAdmin($user,$date) {
+        $sql = "
+            UPDATE tb_users SET
+                name = :name,
+                surname = :surname,
+                tel = :tel,
+                p_id = :position,
+                d_id = :department,
+                role = :role,
                 updated_at = '".$date."'
             WHERE id = :id
          ";

@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary align-items-center">
+<?php session_start(); ?>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary align-items-center">
   <div class="container-fluid align-items-center">
   
     <a class="navbar-brand " href="#">
@@ -18,7 +19,7 @@
           <a class="nav-link" href="/car/pages/member/form.php">แบบฟอร์มขอใช้รถ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/car/pages/member/index.php">ข้อมูลขอใช้รถทั้งหมด</a>
+          <a class="nav-link" href="/car/pages/member/index.php">ข้อมูลขอใช้รถ</a>
         </li>
        
         <?php
@@ -41,6 +42,13 @@
               </ul>
             </li>
           ";
+        }elseif($_SESSION['role']=='moderator'){
+          echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='/car/pages/book/index.php'>จัดการข้อมูลใช้รถ</a>
+            </li>
+          ";
+          
         }
         ?>  
       </ul>

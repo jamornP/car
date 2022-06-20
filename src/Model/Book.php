@@ -264,7 +264,7 @@ class Book extends Db {
     public function updateBookStatus($book) {
         $sql = "
             UPDATE tb_book SET
-                s_id = :status 
+                s_id = :s_id 
             WHERE id = :b_id
          ";
         $stmt = $this->pdo->prepare($sql);

@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="./theme/css/bootstrap-theme.css">
     <!-- icon -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    
-
     <script src="./lib/jquery/dist/jquery.min.js"></script>
     <script src="./lib/moment.min.js"></script>
     <script src="./fullcalendar/fullcalendar.min.js"></script>

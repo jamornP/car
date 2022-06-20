@@ -40,11 +40,12 @@ class Bs extends Db {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($bs);
         return $this->pdo->lastInsertId();
+
     }
 
-    public function deletePosition($id) {
+    public function deleteBsByBook($id) {
         $sql = "
-            DELETE FROM tb_position WHERE id = ?
+            DELETE FROM tb_bs WHERE b_id = ?
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
@@ -70,15 +71,15 @@ class Bs extends Db {
         return $data[0];
     }
 
-    public function updatePosition($position) {
-        $sql = "
-            UPDATE tb_position SET
-                name = :name
-            WHERE id = :id
-         ";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute($position);
-        return true;
-    }
+    // public function updatePosition($position) {
+    //     $sql = "
+    //         UPDATE tb_position SET
+    //             name = :name
+    //         WHERE id = :id
+    //      ";
+    //     $stmt = $this->pdo->prepare($sql);
+    //     $stmt->execute($position);
+    //     return true;
+    // }
 }
 ?>

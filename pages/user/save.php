@@ -7,12 +7,19 @@ $userObj = new User;
 
 
 if ($_REQUEST['action']=='edit'){
+    if($_REQUEST['role']!=''){
+        $user = $_REQUEST;
+        unset($user['action']);
+        print_r($user);
+        $userObj->updateUserAdmin($user,date("Y-m-d H:i:sa"));
+    }else{
     $user = $_REQUEST;
     unset($user['action']);
     print_r($user);
     $userObj->updateUser($user,date("Y-m-d H:i:sa"));
+    }
 }elseif ($_REQUEST['action']=='delete'){
-    $userObj->deleteUser($_REQUEST['id']);
+     $userObj->deleteUser($_REQUEST['id']);
 }
- header('Location: /car/pages/user/index.php');
+  header('Location: /car/pages/user/index.php');
 ?>

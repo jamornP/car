@@ -59,27 +59,49 @@ use App\Model\Timebook;
                                             $i++;
                                             $name=$book['name']." ".$book['surname'];
                                             $ds=datethai($book['start_date']);
-                                            echo "
-                                                <tr>
-                                                    <td>{$i}</td>
-                                                    <td>{$ds}</td>
-                                                    <td>{$book['start_time']}</td>
-                                                    <td>{$book['destination']}</td>
-                                                    <td>{$book['title']}</td>
-                                                    <td>{$book['car']}</td>
-                                                    <td>{$name}</td>
-                                                    <td>
-                                                        <div class='d-grid'>
-                                                            <a href='/car/pages/manage/form.php?id={$book['id']}&action=edit' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a>
-                                                        </div>
-                                                    </td>
-                                                    <td align='right'>
-                                                        
-                                                        <a href='form.php?id={$book['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
-                                                        <a href='save.php?id={$book['id']}&action=delete' class='me-md-2 btn btn-sm btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
-                                                    </td>
-                                                </tr>
-                                            ";
+                                            if($_SESSION['role']=='admin'){
+                                                echo "
+                                                    <tr>
+                                                        <td>{$i}</td>
+                                                        <td>{$ds}</td>
+                                                        <td>{$book['start_time']}</td>
+                                                        <td>{$book['destination']}</td>
+                                                        <td>{$book['title']}</td>
+                                                        <td>{$book['car']}</td>
+                                                        <td>{$name}</td>
+                                                        <td>
+                                                            <div class='d-grid'>
+                                                                <a href='/car/pages/manage/form.php?id={$book['id']}&action=edit' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a>
+                                                            </div>
+                                                        </td>
+                                                        <td align='right'>
+                                                            
+                                                            <a href='form.php?id={$book['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
+                                                            <a href='save.php?id={$book['id']}&action=delete' class='me-md-2 btn btn-sm btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
+                                                        </td>
+                                                    </tr>
+                                                ";
+                                            }elseif($_SESSION['role']=='moderator'){
+                                                echo "
+                                                    <tr>
+                                                        <td>{$i}</td>
+                                                        <td>{$ds}</td>
+                                                        <td>{$book['start_time']}</td>
+                                                        <td>{$book['destination']}</td>
+                                                        <td>{$book['title']}</td>
+                                                        <td>{$book['car']}</td>
+                                                        <td>{$name}</td>
+                                                        <td>
+                                                            <div class='d-grid'>
+                                                                <a href='/car/pages/manage/form.php?id={$book['id']}&action=edit' class='btn btn-sm text-white' style='background-color:{$book['color']}'>{$book['status']}</a>
+                                                            </div>
+                                                        </td>
+                                                        <td align='right'>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                ";
+                                            }
                                         }
                                     ?>
                                 </tbody>

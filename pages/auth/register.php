@@ -46,7 +46,7 @@ use App\Model\Department;
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group">
-                                <label for="email" class="form-label">Email <b class="text-primary">สถาบัน</b></label>
+                                <label for="email" class="form-label">Email <b class="text-danger">สถาบัน ใส่ @kmitl.ac.th ด้วย</b></label>
                                 <input type="email" id="email" class="form-control" name="email"  required >
                             </div>
                         </div>

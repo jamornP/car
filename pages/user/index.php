@@ -63,7 +63,7 @@ if($_SESSION['role']!='admin'){
                                                     <td>{$user['department']}</td>
                                                     <td>{$user['role']}</td>
                                                     <td align='right'>
-                                                        <a href='form.php?id={$user['id']}&action=edit' class='me-md-2 btn btn-sm btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
+                                                        <a href='form.php?id={$user['id']}&action=edit&role={$_SESSION['role']}' class='me-md-2 btn btn-sm btn-warning text-white'><i class='bx bx-message-square-edit' ></i> แก้ไข</a>
                                                         <a href='save.php?id={$user['id']}&action=delete' class='btn btn-sm btn-danger text-white'><i class='bx bx-message-square-minus' ></i> ลบ</a>
                                                     </td>
                                                     

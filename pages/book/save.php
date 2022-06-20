@@ -4,13 +4,17 @@
 
 use App\Model\Book;
 use App\Model\Bs;
+
 $bookObj = new Book;
 $bsObj = new Bs;
+use App\Model\Line;
+$lineObj = new Line;
 print_r($_REQUEST);
 echo $_REQUEST['action'];
 echo="<br>";
 if ($_REQUEST['action']=='delete'){
     $bookObj->deleteBook($_REQUEST['id']);
+    $bookObj->deleteBsByBook($_REQUEST['id']);
 }
 elseif ($_REQUEST['action']=='edit'){
     $book = $_REQUEST;
@@ -29,6 +33,7 @@ elseif ($_REQUEST['action']=='add'){
     $bs['user_add'] = $_SESSION['email'];
     // print_r($bs);
     $bsObj->addBs($bs);
+   
 }
 
  header('Location: index.php');

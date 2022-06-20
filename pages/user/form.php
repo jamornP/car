@@ -11,6 +11,7 @@ use App\Model\User;
 if($_REQUEST['action']=='edit'){
     $userObj = new User;
     $user = $userObj->getUserById($_REQUEST['id']);
+    // print_r($user);
 }
 ?>
 <!DOCTYPE html>
@@ -93,6 +94,24 @@ if($_REQUEST['action']=='edit'){
                                 </select>
                             </div>
                         </div>
+                        <?php
+                        if($_REQUEST['role']=='admin'){
+                            echo "
+                                <div class='col-sm-12 col-md-6 col-lg-3'>
+                                    <div class='form-group'>
+                                        <label for='department'class='form-label'>status</label>
+                                        <select class='form-select' aria-label='Default select example' id='department' name='role' required>
+                                            <option value='{$user['role']}'>{$user['role']}</option>
+                                            <option value='member'>member</option>
+                                            <option value='moderator'>moderator</option>
+                                            <option value='admin'>admin</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            ";
+                        }
+                        ?>
                     </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary mt-3">บันทึก</button>

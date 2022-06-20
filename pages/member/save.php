@@ -6,6 +6,8 @@ use App\Model\Book;
 use App\Model\Bs;
 $bookObj = new Book;
 $bsObj = new Bs;
+use App\Model\Line;
+$lineObj = new Line;
 print_r($_REQUEST);
 echo $_REQUEST['action'];
 if ($_REQUEST['action']=='delete'){
@@ -25,15 +27,16 @@ elseif ($_REQUEST['action']=='add'){
     $bs['b_id'] = $id;
     $bs['number'] = "";
     $bs['sname'] = "";
-    
     $bs['tel'] = "";
     $bs['s_id'] = 1;
     $bs['user_add'] = $_SESSION['email'];
     echo "<br>";
     print_r($bs);
     $bsObj->addBs($bs);
+    $count = $lineObj->SentLine();
+    echo "<br>".$count;
 }
 
- header('Location: index.php');
+//  header('Location: index.php');
 
 ?>
