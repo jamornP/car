@@ -27,11 +27,15 @@ if ($_REQUEST['action']=='delete'){
         unset($book['id']);
         $book['s_id']=5;
         $book['user_add']=$_SESSION['email'];
-        $id = $bookObj->addBook($book);
+         $id = $bookObj->addBook($book);
+        echo "<pre>";
+        print_r($book);
+        echo"</pre>";
     }else{
         $book = $_REQUEST;
         unset($book['action']);
         unset($book['id']);
+        $book['s_id']=1;
         $book['user_add']=$_SESSION['email'];
         $id = $bookObj->addBook($book);
         $bs['b_id'] = $id;

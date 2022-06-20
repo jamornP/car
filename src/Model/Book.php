@@ -101,6 +101,7 @@ class Book extends Db {
                 remark,
                 user_add,
                 provin,
+                s_id,
                 esypass
             ) VALUES (
                 :name, 
@@ -121,6 +122,7 @@ class Book extends Db {
                 :remark,
                 :user_add,
                 :provin,
+                :s_id,
                 :esypass
             )
          ";
