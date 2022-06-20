@@ -140,6 +140,18 @@ use App\Model\Car;
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="alert alert-sm alert-info">
+                            <b>ผู้โดยสาร</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['people'];?>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
                             <b>รายละเอียดเพิ่มเติม</b> 
                             </div> 
                         </div>
@@ -149,6 +161,8 @@ use App\Model\Car;
                             </div>
                         </div>
                     </div>
+                    <h3>ผู้ขอ</h3>
+                    <hr>
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="alert alert-sm alert-info">
