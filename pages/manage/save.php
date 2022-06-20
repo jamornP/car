@@ -5,11 +5,14 @@ use App\Model\Book;
 use App\Model\Bs;
 $bookObj = new Book;
 $bsObj = new Bs;
-
+use App\Model\Line;
+$lineObj = new Line;
 
 $_REQUEST['user_add'] = $_SESSION['email'];
 // print_r($_REQUEST);
 $bsObj->addBs($_REQUEST);
+
+
 $book = $_REQUEST;
 unset($book['sname']);
 unset($book['tel']);
