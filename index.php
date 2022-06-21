@@ -37,7 +37,7 @@ session_start();
                 <div class="card ">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
                     <h3>ปฏิทินการใช้รถ</h3>
-                        <!-- <a href="./pages/book/form.php" class="btn btn-success text-white">แบบฟอร์มขอใช้รถ</a> -->
+                        <a href="https://www.itrector.kmitl.ac.th/vehicle/index.php" class="btn btn-warning text-white"  target='_blank'>ขอใช้รถสถาบัน</a>
                         <?php //echo password_hash('admincar',PASSWORD_DEFAULT);?>
 
                     </div>
@@ -58,7 +58,7 @@ session_start();
                                             ";
                                         }
                                     ?>
-                                    <td><i class='bx bx-bus'></i></td>
+                                    <td></td>
                                     <td>รถตู้คณะฯ&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                             </table>
