@@ -58,7 +58,7 @@ session_start();
                                             ";
                                         }
                                     ?>
-                                    <td><div style='width: 14px; height: 14px; background-color:#3020BE' class=""></div></td>
+                                    <td><i class='bx bx-bus'></i></td>
                                     <td>รถตู้คณะฯ&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                             </table>

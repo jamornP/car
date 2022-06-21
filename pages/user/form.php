@@ -34,7 +34,7 @@ if($_REQUEST['action']=='edit'){
                 <h4>แก้ไขข้อมูลสมาชิก</h4>
             </div>
             <div class="card-body">
-                <form action="save.php" class="" method="get">
+                <form action="save.php" class="" method="post">
                     <input type="hidden" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
                     <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
                     <div class="row">

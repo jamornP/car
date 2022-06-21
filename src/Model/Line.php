@@ -24,6 +24,15 @@ class Line extends Db {
             FROM `tb_bs` 
             WHERE s_id = 4
         ";
+        $sql[]="
+            SELECT count(*) 
+            FROM `tb_book` 
+            WHERE c_id = 1
+        ";
+        $sql[]="
+            SELECT count(*) 
+            FROM `tb_book`
+        ";
         $i=0;
         foreach($sql as $da){
             $stmt = $this->pdo->query($da);
@@ -35,7 +44,7 @@ class Line extends Db {
     }
     public function SentLine() {
         $dataCount = $this->CountStatus1();
-        $data="\nขอใช้รถสถาบัน/ขออนุมัติสถาบัน =: ".$dataCount[0]."/".$dataCount[1]."\nขอใช้รถสถาบัน/สถาบันอนุมัติ:ไม่อนุมัติ =: ".$dataCount[0]."/".$dataCount[2].":".$dataCount[3]."\nLink : http://161.246.23.21/car/" ;
+        $data=" รถสถาบัน\nขอใช้รถ/คณะส่งเรื่องออก =: ".$dataCount[0]."/".$dataCount[1]."\nขอใช้รถ/อนุมัติ:ไม่อนุมัติ =: ".$dataCount[0]."/".$dataCount[2].":".$dataCount[3]."\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสภาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/" ;
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
@@ -68,8 +77,8 @@ class Line extends Db {
             curl_close( $chOne );  
     }
     public function SentLineSci() {
-      
-        $data="\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์\nLink : http://161.246.23.21/car/" ;
+        $dataCount = $this->CountStatus1();
+        $data="\nขอใช้รถตู้คณะฯ พี่อภิสิทธิ์ =: ".$dataCount[4]."\n---------------------\nรวมทั้งหมด/รถคณะฯ : รถสภาบันฯ =: ".$dataCount[5]."/".$dataCount[4].":".$dataCount[0]."\nLink : http://161.246.23.21/car/"  ;
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
