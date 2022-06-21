@@ -144,7 +144,7 @@ if($_REQUEST['action']=='edit'){
                                     <div class="col-6 col-sm-6 col-md-6 col-lg">
                                         <div class="form-group">
                                             <label for="datepicker"class="form-label">วันที่</label>
-                                            <input type="text" id="datepicker" class="form-control" name="start_date" required autocomplete="off" value="<?php echo $book['start_date']; ?>">
+                                            <input type="text" id="datepicker" class="form-control" name="start_date" required autocomplete="off" value="<?php echo $book['start_date']; ?>" min="<?php echo date('Y-m-d');?>">
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-6 col-md-6 col-lg-2">
@@ -169,7 +169,7 @@ if($_REQUEST['action']=='edit'){
                                     <div class="col-6 col-sm-6 col-md-6 col-lg">
                                         <div class="form-group">
                                             <label for="datepicker2"class="form-label">ถึงวันที่</label>
-                                            <input type="text" id="datepicker2" class="form-control" name="end_date" required autocomplete="off" value="<?php echo $book['end_date']; ?>">
+                                            <input type="text" id="datepicker2" class="form-control" name="end_date" required autocomplete="off" value="<?php echo $book['end_date']; ?>" min="<?php echo date('Y-m-d');?>">
                                         </div>
                                     </div>
                                     <div class="col-6 col-sm-6 col-md-6 col-lg-2">
@@ -309,19 +309,24 @@ if($_REQUEST['action']=='edit'){
     <script src='../../theme/js/bootstrap-datepicker-thai.js'></script>
     <script src='../../theme/js/locales/bootstrap-datepicker.th.js'></script>
     
-    <script>
+    <script type="text/javascript">
+        
         $(function(){
             $("#datepicker").datepicker({
                 language:'th-en',
                 format: 'yyyy-mm-dd',
+                minDate: 0,
                 autoclose: true
+                
             });
             $("#datepicker2").datepicker({
                 language:'th-en',
                 format:'yyyy-mm-dd',
                 autoclose: true
             });
+            
         });
+       
     </script>
 </body>
 </html>

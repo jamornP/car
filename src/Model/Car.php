@@ -9,7 +9,7 @@ class Car extends Db {
         $sql = "
             SELECT *
             FROM tb_car
-            ORDER BY id
+            ORDER BY name
         ";
         $stmt = $this->pdo->query($sql);
         $data = $stmt->fetchAll();
