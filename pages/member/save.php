@@ -31,7 +31,8 @@ if ($_REQUEST['action']=='delete'){
         $data = $lineObj->SentLineSci();
         echo "<pre>";
         print_r($book);
-        echo"</pre>";
+        echo "</pre>";
+        echo "<br> car 1";
     }else{
         $book = $_REQUEST;
         unset($book['action']);
@@ -47,6 +48,7 @@ if ($_REQUEST['action']=='delete'){
         $bs['user_add'] = $_SESSION['email'];
         echo "<br>";
         print_r($bs);
+        echo "<br> car ".$_REQUEST['car'];
         $bsObj->addBs($bs);
         $data = $lineObj->SentLine();
     }

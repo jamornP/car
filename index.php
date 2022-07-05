@@ -2,6 +2,7 @@
 
 <?php 
     use App\Model\Statusbook;
+    date_default_timezone_set('Asia/Bangkok');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@ session_start();
             <div class="col">
                 <div class="card ">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                    <h3>ปฏิทินการใช้รถ</h3>
+                    <h3>ปฏิทินการใช้รถ <?php // echo date("d-m-Y H:i:s");?></h3>
                         <a href="https://www.itrector.kmitl.ac.th/vehicle/index.php" class="btn btn-warning text-white"  target='_blank'>ขอใช้รถสถาบันฯ</a>
                         <?php //echo password_hash('admincar',PASSWORD_DEFAULT);?>
 

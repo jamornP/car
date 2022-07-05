@@ -1,6 +1,7 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/pages/auth/auth.php";?>
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
+date_default_timezone_set('Asia/Bangkok');
 error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 use App\Model\Book;
 use App\Model\Position;

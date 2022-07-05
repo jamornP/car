@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+date_default_timezone_set('Asia/Bangkok');
+?>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary align-items-center">
   <div class="container-fluid align-items-center">
   
