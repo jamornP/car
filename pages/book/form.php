@@ -127,7 +127,7 @@ if($_REQUEST['action']=='edit'){
                                     <div class="col-sm-12 col-md-3 col-lg-2">
                                         <div class="form-group">
                                             <label for="count"class="form-label">จำนวนผู้เดินทาง</label>
-                                            <input type="text" class="form-control" id="count" name="count" required value="<?php echo $book['count']; ?>">
+                                            <input type="number" class="form-control" id="number" name="count" required value="<?php echo $book['count']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg">

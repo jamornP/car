@@ -53,7 +53,7 @@ use App\Model\Timebook;
                                 <tbody>
                                     <?php
                                         $bookObj = new Book;
-                                        $books = $bookObj->getAllBook(); 
+                                        $books = $bookObj->getAllBook2(); 
                                         $i=0;
                                         foreach($books as $book) {
                                             $i++;

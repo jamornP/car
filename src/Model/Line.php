@@ -5,38 +5,43 @@ class Line extends Db {
 
     public function CountStatus1(){
         $sql[]="
-            SELECT count(*) 
+            SELECT * 
             FROM `tb_bs` 
             WHERE s_id = 1
+            GROUP BY b_id
         ";
         $sql[]="
-            SELECT count(*) 
+            SELECT * 
             FROM `tb_bs` 
             WHERE s_id = 2
+            GROUP BY b_id
         ";
         $sql[]="
-            SELECT count(*) 
+            SELECT *
             FROM `tb_bs` 
             WHERE s_id = 3
+            GROUP BY b_id
+            
         ";
         $sql[]="
-            SELECT count(*) 
+            SELECT * 
             FROM `tb_bs` 
             WHERE s_id = 4
+            GROUP BY b_id
         ";
         $sql[]="
-            SELECT count(*) 
+            SELECT * 
             FROM `tb_book` 
             WHERE c_id = 1
         ";
         $sql[]="
-            SELECT count(*) 
+            SELECT * 
             FROM `tb_book`
         ";
         $i=0;
         foreach($sql as $da){
             $stmt = $this->pdo->query($da);
-            $data[$i] = $stmt->fetchColumn();
+            $data[$i] = $stmt->rowCount();
             $i++;
         }
         return $data;

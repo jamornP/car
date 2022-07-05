@@ -2,9 +2,10 @@
 <?php
 use App\Model\Line;
 $lineObj = new Line;
-$data = $lineObj->SentLine();
+$data = $lineObj->CountStatus1();
 echo "<pre>"; 
 print_r($data);
 echo "</pre>";
-// SentLine($data);
+$data2 = $lineObj->SentLine($data);
+
 ?>

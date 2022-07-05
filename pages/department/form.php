@@ -2,7 +2,7 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php";?>
 <?php
 
-use App\Model\department;
+use App\Model\Department;
 
 if($_REQUEST['action']=='edit'){
     $departmentObj = new Department;
