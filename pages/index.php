@@ -6,6 +6,6 @@ $data = $lineObj->CountStatus1();
 echo "<pre>"; 
 print_r($data);
 echo "</pre>";
-$data2 = $lineObj->SentLine($data);
+// $data2 = $lineObj->SentLine($data);
 
 ?>
