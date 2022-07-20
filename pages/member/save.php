@@ -19,7 +19,8 @@ if ($_REQUEST['action']=='delete'){
     $book = $_REQUEST;
     unset($book['action']);
     $bookObj->updateBook($book);
-    $data = $lineObj->SentLine();
+    $namere="คุณ".$book['name']." ".$book['surname'];
+    $data = $lineObj->SentLine($namere);
 }elseif ($_REQUEST['action']=='add'){
     if($_REQUEST['car']==1){
         $book = $_REQUEST;
