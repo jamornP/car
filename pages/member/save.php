@@ -28,7 +28,8 @@ if ($_REQUEST['action']=='delete'){
         $book['s_id']=5;
         $book['user_add']=$_SESSION['email'];
         $id = $bookObj->addBook($book);
-        $data = $lineObj->SentLineSci();
+        $namere="คุณ".$book['name']." ".$book['surname'];
+        $data = $lineObj->SentLineSci($namere);
         echo "<pre>";
         print_r($book);
         echo "</pre>";
@@ -50,7 +51,8 @@ if ($_REQUEST['action']=='delete'){
         print_r($bs);
         echo "<br> car ".$_REQUEST['car'];
         $bsObj->addBs($bs);
-        $data = $lineObj->SentLine();
+        $namere="คุณ".$book['name']." ".$book['surname'];
+        $data = $lineObj->SentLine($namere);
     }
 }
 
