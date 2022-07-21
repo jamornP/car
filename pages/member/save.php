@@ -29,6 +29,16 @@ if ($_REQUEST['action']=='delete'){
         $book['s_id']=5;
         $book['user_add']=$_SESSION['email'];
         $id = $bookObj->addBook($book);
+        // $bs['b_id'] = $id;
+        // $bs['number'] = "ฮง-7816";
+        // $bs['sname'] = "นายอภิษิท รื่นรม";
+        // $bs['tel'] = "";
+        // $bs['s_id'] = 5;
+        // $bs['user_add'] = $_SESSION['email'];
+        // echo "<br>";
+        // print_r($bs);
+        // echo "<br> car ".$_REQUEST['car'];
+        // $bsObj->addBs($bs);
         $namere="คุณ".$book['name']." ".$book['surname'];
         $data = $lineObj->SentLineSci($namere);
         echo "<pre>";

@@ -25,7 +25,7 @@ use App\Model\Car;
     <script src="./lib/lang/th.js"></script>
     <script src="./lib/jquery.fancybox.pack.js"></script>
 </head>
-<body class="font-kanit mt-0">
+<body class="font-kanit mt-0 fs-14">
 <?php
 
     $bookObj = new Book;
@@ -199,6 +199,45 @@ use App\Model\Car;
                             </div>
                         </div>
                     </div>
+                    
+                    <h3>พขร</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>เลขทะเบียน</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['number'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ชื่อ - สกุล</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['staff'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ตำแหน่ง</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['staff_tel'];?>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="alert alert-sm alert-info">
@@ -211,7 +250,6 @@ use App\Model\Car;
                             </div>
                         </div>
                     </div>
-                
                 </div>
             </div>
         </div>
