@@ -37,9 +37,9 @@ session_start();
             <div class="col">
                 <div class="card ">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-                    <h3>ปฏิทินการใช้รถ <?php // echo date("d-m-Y H:i:s");?></h3>
+                    <h3>ปฏิทินการใช้รถ <?php if($_SESSION['role']=='moderator' OR $_SESSION['role']=='admin'){?></h3>
                         <a href="https://www.itrector.kmitl.ac.th/vehicle/index.php" class="btn btn-warning text-white"  target='_blank'>ขอใช้รถสถาบันฯ</a>
-                        <?php //echo password_hash('admincar',PASSWORD_DEFAULT);?>
+                        <?php }?>
 
                     </div>
                     <div class="card-body fs-14">
