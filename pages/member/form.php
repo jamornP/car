@@ -48,7 +48,7 @@ if($_REQUEST['action']=='edit'){
                             <form action="save.php" method="get">
                                 <input type="hidden" name="action" value="<?php echo ($_REQUEST['action']=='edit') ? "edit" : "add";?>">
                                 <input type="hidden" name="id" value="<?php echo $book['id']; ?>">
-                                <p class="mt-3"><b>ผู้ขอ<?php echo $_SESSION['p_id'];?> </b></p>
+                                <p class="mt-3"><b>ผู้ขอ<?php //echo $_SESSION['p_id'];?> </b></p>
                                 <hr>
                                 <div class="row">
                                     <?php
