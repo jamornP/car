@@ -55,6 +55,18 @@ use App\Model\Car;
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="alert alert-sm alert-info">
+                            <b>วันที่กรอกข้อมูล</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo datethai_time($book['date_register']);?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
                             <b>วันที่</b> 
                             </div> 
                         </div>

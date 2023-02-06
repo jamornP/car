@@ -11,6 +11,21 @@
     return  $data;
 
 }
+function datethai_time($date){
+    $da_time =explode(" ",$date);
+    $date1 = $da_time[0];
+    $time1 = $da_time[1];
+    $da=explode("-",$date1);
+
+    $d=$da[2];
+    $m=$da[1];
+    $y=$da[0];
+    $month=month($date); 
+    $year=year($date);   
+    $data =intval($d)." ".$month." ".$year." ".$time1;
+    return  $data;
+
+}
  function month($date){
     $da=explode("-",$date);
     $d=$da[2];
