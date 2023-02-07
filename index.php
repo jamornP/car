@@ -1,6 +1,12 @@
 <?php require $_SERVER['DOCUMENT_ROOT']."/car/vendor/autoload.php"; ?>
 
 <?php 
+require('./pages/function.php');
+    use App\Model\Book;
+    use App\Model\Position;
+    use App\Model\Department;
+    use App\Model\Choose;
+    use App\Model\Car;
     use App\Model\Statusbook;
     date_default_timezone_set('Asia/Bangkok');
 ?>
@@ -33,7 +39,247 @@ session_start();
 ?>
 </div>
     <div class="container mt-2">
+        <?php
+            if(isset($_GET['id'])){
+                $bookObj = new Book;
+                $book = $bookObj->getBookById($_GET['id']);
+                // print_r($book);
+        ?>
         <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">รายละเอียด</div>
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ประเภทรถ</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['car'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>วันที่กรอกข้อมูล</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo datethai_time($book['date_register']);?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>วันที่</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo datethai($book['start_date'])." เวลา ".$book['start_time']." น" ;?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ถึงวันที่</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo datethai($book['end_date']) ." เวลา ".$book['end_time']." น";?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>จุดประสงค์การใช้รถ</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['title'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ต้องการให้</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['choose'];?>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ต้นทาง</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['origin'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ปลายทาง</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['destination'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>จำนวนผู้โดยสาร</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['count']." คน";?>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ผู้โดยสาร</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['people'];?>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>รายละเอียดเพิ่มเติม</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['remark'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>ผู้ขอ</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ชื่อ - สกุล</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['name']." ".$book['surname'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ตำแหน่ง</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['position'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>สังกัด</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['department'];?>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>พขร</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>เลขทะเบียน</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['number'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ชื่อ - สกุล</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['staff'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>ตำแหน่ง</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm alert-success">
+                                <?php echo $book['staff_tel'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="alert alert-sm alert-info">
+                            <b>สถานะ</b> 
+                            </div> 
+                        </div>
+                        <div class="col-sm mt-0">
+                            <div class="alert alert-sm text-white" style="background-color:<?php echo $book['color'];?>">
+                                <?php echo $book['status'];?>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+            }
+        ?>
+        <div class="row mt-2">
             <div class="col">
                 <div class="card ">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
@@ -76,7 +322,6 @@ session_start();
                     </div>
                 </div>
             </div>
-        
         </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js'></script>

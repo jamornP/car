@@ -72,12 +72,13 @@ if($_REQUEST['action']=='edit'){
                                     </div>      
                                     <div class="col-sm-12 col-md-6 col-lg-3">
                                         <div class="form-group">
-                                            <label for="status"class="form-label">สถานะใบขอใช้รถ</label>
+                                            <label for="status"class="form-label">สถานะใบขอใช้รถ <?php //echo $book['s_id'];?></label>
                                             <select class="form-select" aria-label="Default select example" id="status" name="s_id" required readonly>
-                                                <option  value="">เลือก</option>
+                                                <!-- <option  value="">เลือก</option> -->
                                                 <?php
                                                     $statusbookObj = new Statusbook;
-                                                    $statusbooks = $statusbookObj->getAllStatus(); 
+                                                    $statusbooks = $statusbookObj->getStatusByIdStep($book['s_id']); 
+                                                    print_r($statusbooks);
                                                     foreach($statusbooks as $statusbook) {
                                                         $selected =($statusbook['id']==$book['s_id']) ? 
                                                         "selected" : "";

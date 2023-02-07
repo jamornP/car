@@ -56,6 +56,31 @@ class Statusbook extends Db {
         $data = $stmt->fetchAll();
         return $data[0];
     }
+    public function getStatusByIdStep($id) {
+        if($id==1){
+            $sql = "
+            SELECT 
+                *
+            FROM 
+                tb_status 
+            WHERE
+                id = 2
+        ";
+        }elseif($id==2){
+            $sql = "
+            SELECT 
+                *
+            FROM 
+                tb_status 
+            WHERE
+                (id = 3) OR (id = 4)
+        ";
+        }
+        $stmt = $this->pdo->query($sql);
+        // $stmt->execute($id);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
 
     public function updateStatus($status) {
         $sql = "
