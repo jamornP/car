@@ -140,6 +140,7 @@ class Book extends Db {
                 user_add,
                 provin,
                 s_id,
+                date_register,
                 esypass
             ) VALUES (
                 :name, 
@@ -161,6 +162,7 @@ class Book extends Db {
                 :user_add,
                 :provin,
                 :s_id,
+                :date_register,
                 :esypass
             )
          ";

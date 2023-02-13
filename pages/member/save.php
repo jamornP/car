@@ -27,6 +27,7 @@ if ($_REQUEST['action']=='delete'){
         $book = $_REQUEST;
         unset($book['action']);
         unset($book['id']);
+        $book['date_register']=date("Y-m-d H:i:s");
         $book['s_id']=5;
         $book['user_add']=$_SESSION['email'];
         $id = $bookObj->addBook($book);
