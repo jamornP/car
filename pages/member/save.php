@@ -8,10 +8,10 @@ $bookObj = new Book;
 $bsObj = new Bs;
 use App\Model\Line;
 $lineObj = new Line;
-print_r($_REQUEST);
+// print_r($_REQUEST);
 
-echo $_REQUEST['action'];
-echo "<br>".$_REQUEST['car'];
+// echo $_REQUEST['action'];
+// echo "<br>".$_REQUEST['car'];
 if ($_REQUEST['action']=='delete'){
     $bookObj->deleteBook($_REQUEST['id']);
     $bsObj->deleteBsByBook($_REQUEST['id']);
@@ -53,6 +53,7 @@ if ($_REQUEST['action']=='delete'){
         unset($book['action']);
         unset($book['id']);
         $book['s_id']=1;
+        $book['date_register'] = date("Y-m-d H:i:s");
         $book['user_add']=$_SESSION['email'];
         $id = $bookObj->addBook($book);
         $bs['b_id'] = $id;
